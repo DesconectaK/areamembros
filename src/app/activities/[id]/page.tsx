@@ -61,10 +61,10 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           <div className="mt-6 flex justify-center">
             <Image
               src={`https://placehold.co/600x400.png`}
-              alt={`Placeholder para atividade ${id}`}
+              alt="Prévia de 100 Atividades Criativas"
               width={600}
               height={400}
-              data-ai-hint="module content creative"
+              data-ai-hint="kids activities"
               className="rounded-lg shadow-md object-cover"
             />
           </div>
