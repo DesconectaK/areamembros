@@ -3,22 +3,21 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Temporarily disabling authentication logic to allow app development
-  // const authToken = request.cookies.get('auth_token')?.value;
-  // const { pathname } = request.nextUrl;
+  const authToken = request.cookies.get('auth_token')?.value;
+  const { pathname } = request.nextUrl;
 
-  // const publicPaths = ['/login'];
-  // const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
+  const publicPaths = ['/login'];
+  const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
 
-  // if (authToken && isPublicPath) {
-  //   // If authenticated and trying to access login page, redirect to home
-  //   return NextResponse.redirect(new URL('/', request.url));
-  // }
+  if (authToken && isPublicPath) {
+    // If authenticated and trying to access login page, redirect to home
+    return NextResponse.redirect(new URL('/', request.url));
+  }
 
-  // if (!authToken && !isPublicPath) {
-  //   // If not authenticated and trying to access a protected page, redirect to login
-  //   return NextResponse.redirect(new URL('/login', request.url));
-  // }
+  if (!authToken && !isPublicPath) {
+    // If not authenticated and trying to access a protected page, redirect to login
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
 
   return NextResponse.next();
 }
