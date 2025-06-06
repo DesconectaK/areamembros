@@ -14,7 +14,7 @@ const activities = [
   {
     id: "activity-2",
     title: "50 BRINCADEIRAS CRIATIVAS",
-    imageUrl: "/images/capamodulo2.png", // Atualizado aqui
+    imageUrl: "/images/capamodulo2.png", 
     imageHint: "children playing games",
     unoptimized: false,
   },
