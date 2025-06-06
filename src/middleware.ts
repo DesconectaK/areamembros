@@ -3,10 +3,6 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Lógica de autenticação temporariamente desabilitada para permitir acesso direto.
-  return NextResponse.next();
-
-  /* Lógica de autenticação original (agora inativa)
   const authToken = request.cookies.get('auth_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -24,7 +20,6 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
-  */
 }
 
 export const config = {
