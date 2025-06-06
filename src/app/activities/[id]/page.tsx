@@ -17,8 +17,10 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
   // Exemplo: const activityData = await fetchActivityData(id);
   // E então usar activityData.description
 
-  const activityDescription = "Descubra atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.";
-  const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing"; // Revertido para Google Drive
+  const activityTitle = "50 BRINCADEIRAS CRIATIVAS";
+  const activitySubheadline = "Que tal se divertir com brincadeiras criativas?";
+  const activityDescription = "Explore brincadeiras que estimulam a imaginação e ajudam no aprendizado. Perfeitas para todas as idades, essas brincadeiras são uma forma divertida de desenvolver habilidades e criar momentos inesquecíveis em família.";
+  const pdfUrl = "https://drive.google.com/file/d/1QOnpnLQl8rYjIzkDsxfBd1vc3I5Uht8F/view?usp=sharing";
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
@@ -27,13 +29,13 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           <div className="flex items-center justify-center mb-1">
             <FileText size={48} className="text-primary mr-3" />
             <CardTitle className="text-center text-3xl font-headline">
-              100 ATIVIDADES CRIATIVAS
+              {activityTitle}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent className="text-center">
           <h2 className="text-center text-xl font-headline font-bold text-primary mt-2 mb-8">
-            Quer transformar o aprendizado dos seus filhos?
+            {activitySubheadline}
           </h2>
           <p className="text-md text-foreground mb-6 px-4">
             {activityDescription}
