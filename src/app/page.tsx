@@ -1,40 +1,27 @@
 
 import { Card } from "@/components/ui/card";
-import Image from "next/image";
 import Link from "next/link";
 
 const activities = [
   {
     id: "activity-1",
     title: "100 ATIVIDADES CRIATIVAS",
-    imageUrl: "/images/capamodulo1.png",
-    imageHint: "activity book cover",
-    unoptimized: false,
   },
   {
     id: "activity-2",
     title: "50 BRINCADEIRAS CRIATIVAS",
-    imageUrl: "/images/capamodulo2.png", 
-    imageHint: "children playing games",
-    unoptimized: false,
   },
   {
     id: "activity-3",
     title: "50 MODELOS PARA COLORIR",
-    imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "coloring pages art",
   },
   {
     id: "activity-4",
     title: "50 ATIVIDADES MUSICAIS",
-    imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "musical notes kids",
   },
   {
     id: "activity-5",
     title: "KIT TDAH/TEA",
-    imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "therapy activities",
   },
 ];
 
@@ -56,7 +43,7 @@ export default function HomePage() {
       >
         <p className="text-sm md:text-lg text-center px-4">
           Espaço para o Banner<br />
-          (Sugerimos proporção 4:1, e.g., 1200x300px)
+          (Proporção 4:1, e.g., 1200x300px)
         </p>
       </div>
 
@@ -75,19 +62,14 @@ export default function HomePage() {
               >
                 <Card
                   className="w-[170px] min-w-[170px] sm:w-[180px] sm:min-w-[180px] md:w-[200px] md:min-w-[200px]
-                             bg-card rounded-lg shadow-lg overflow-hidden border-border/50
-                             transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer"
+                             h-[255px] sm:h-[270px] md:h-[300px] 
+                             bg-card rounded-lg shadow-lg border-border/50
+                             transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
+                             flex flex-col items-center justify-center p-4 text-center"
                 >
-                  <div className="relative w-full aspect-[2/3]">
-                    <Image
-                      src={activity.imageUrl}
-                      alt={activity.title}
-                      fill
-                      data-ai-hint={activity.imageHint}
-                      className="object-cover"
-                      unoptimized={activity.unoptimized ?? (activity.imageUrl.startsWith('https://placehold.co'))}
-                    />
-                  </div>
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                    {activity.title}
+                  </h3>
                 </Card>
               </Link>
             ))}
