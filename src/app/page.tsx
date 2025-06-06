@@ -23,6 +23,8 @@ const activities = [
   {
     id: "activity-4",
     title: "50 ATIVIDADES MUSICAIS",
+    imageUrl: "/images/capamusicas.png",
+    imageHint: "atividades musicais",
   },
   {
     id: "activity-5",
