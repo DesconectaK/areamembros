@@ -7,10 +7,9 @@ export function middleware(request: NextRequest) {
   // Isso permitirá o acesso a todas as páginas sem login.
   // A página de login (/login) em si ainda funcionará e redirecionará
   // para a página principal se as credenciais corretas forem inseridas.
-  return NextResponse.next();
+  // return NextResponse.next(); // Linha que desabilitava a autenticação agora está comentada
 
-  /*
-  // Lógica de autenticação original (atualmente comentada)
+  // Lógica de autenticação original (agora ativa)
   const authToken = request.cookies.get('auth_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -28,7 +27,6 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
-  */
 }
 
 export const config = {
