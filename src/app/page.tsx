@@ -7,7 +7,7 @@ import Link from "next/link";
 const activities = [
   {
     id: "activity-1",
-    title: "Pintura Criativa com Guache",
+    title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
     imageUrl: "https://placehold.co/200x300.png",
     imageHint: "kids painting art",
   },
@@ -63,50 +63,44 @@ export default function HomePage() {
         <p className="text-md md:text-lg text-muted-foreground mt-2">Acesse o conteúdo abaixo e veja a magia acontecer.</p>
       </div>
 
-      <section className="space-y-4 animate-in fade-in slide-in-from-bottom-5 duration-700">
-        <h2 className="text-2xl md:text-3xl font-headline font-semibold text-foreground px-1">
-          100 ATIVIDADES
-        </h2>
+      <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
+        {/* O título da seção "100 ATIVIDADES" foi removido conforme solicitado */}
         <div className="relative">
-          <div 
-            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory 
+          <div
+            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory
                        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {activities.map((activity) => (
-              <Link 
-                href={`/activities/${activity.id}`} 
-                key={activity.id} 
+              <Link
+                href={`/activities/${activity.id}`} // Ajuste esta rota conforme necessário para seus módulos
+                key={activity.id}
                 className="flex-shrink-0 snap-start group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
-                aria-label={`Acessar ${activity.title}`}
+                aria-label={`Acessar atividade: ${activity.title}`} // Mantido para acessibilidade, mesmo que o título não seja visual
               >
                 <Card
                   className="w-[170px] min-w-[170px] sm:w-[180px] sm:min-w-[180px] md:w-[200px] md:min-w-[200px]
                              bg-card rounded-lg shadow-lg overflow-hidden border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer"
                 >
-                  <div className="relative w-full aspect-[2/3]">
+                  <div className="relative w-full aspect-[2/3]"> {/* Aspect ratio vertical */}
                     <Image
                       src={activity.imageUrl}
-                      alt={activity.title}
+                      alt={activity.title} // Mantido para acessibilidade
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-3">
-                    <h3 className="text-sm font-semibold text-card-foreground truncate group-hover:text-primary transition-colors duration-200">
-                      {activity.title}
-                    </h3>
-                  </div>
+                  {/* A div com o título h3 foi removida conforme solicitado */}
                 </Card>
               </Link>
             ))}
-             {/* Adicionando um espaçador no final para melhor visualização da sombra do último card */}
+            {/* Adicionando um espaçador no final para melhor visualização da sombra do último card */}
             <div className="flex-shrink-0 w-1 h-1 snap-end"></div>
           </div>
         </div>
       </section>
-      
+
       {/* Você pode adicionar mais seções como a de cima aqui, se necessário */}
 
     </div>
