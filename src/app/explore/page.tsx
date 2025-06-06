@@ -1,24 +1,82 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Compass } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Compass, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+
+const upsellProducts = [
+  {
+    id: "upsell-1",
+    title: "Super Kit de Planejamento Semanal",
+    description: "Transforme sua rotina com nosso kit exclusivo de planejamento, incluindo planners, adesivos e guias práticos. Organize suas semanas e alcance seus objetivos com mais facilidade e criatividade!",
+    price: "R$ 49,90",
+    imageUrl: "https://placehold.co/300x300.png",
+    imageHint: "kit planejamento",
+    comingSoon: true,
+  },
+  {
+    id: "upsell-2",
+    title: "Curso Online: Parentalidade Consciente",
+    description: "Aprenda técnicas e estratégias para uma parentalidade mais conectada e eficaz. Módulos interativos, dicas de especialistas e uma comunidade de apoio esperam por você.",
+    price: "R$ 97,00",
+    imageUrl: "https://placehold.co/300x300.png",
+    imageHint: "curso parentalidade",
+    comingSoon: true,
+  },
+];
 
 export default function ExplorePage() {
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center justify-center min-h-full pt-8">
-      <Card className="w-full max-w-md shadow-xl">
-        <CardHeader>
-          <div className="flex items-center justify-center mb-1">
-            <Compass size={48} className="text-primary mr-3" />
-            <CardTitle className="text-center text-2xl font-headline">Explorar</CardTitle>
+    <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8 min-h-full">
+      <Card className="w-full shadow-xl border-border/50">
+        <CardHeader className="pb-4">
+          <div className="flex items-center justify-center mb-2">
+            <Compass size={40} className="text-primary mr-3" />
+            <CardTitle className="text-center text-2xl md:text-3xl font-headline">
+              Explorar Novidades
+            </CardTitle>
           </div>
+          <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
+            Descubra produtos e recursos exclusivos que preparamos para você!
+          </CardDescription>
         </CardHeader>
-        <CardContent className="text-center">
-          <h2 className="text-center text-xl font-headline font-bold text-primary mt-2 mb-8">
-            Navegue por novos conteúdos e funcionalidades
-          </h2>
-          <p className="text-md text-foreground mb-6 px-4">
-            Descubra novas seções e materiais preparados para enriquecer sua experiência.
-          </p>
+        <CardContent className="space-y-8 pt-2">
+          {upsellProducts.map((product) => (
+            <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
+              <CardContent className="p-4 md:p-6">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+                  <div className="w-full md:w-[150px] lg:w-[180px] flex-shrink-0">
+                    <Image
+                      src={product.imageUrl}
+                      alt={`Preview do ${product.title}`}
+                      width={180}
+                      height={180}
+                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm"
+                      data-ai-hint={product.imageHint}
+                      unoptimized={product.imageUrl.startsWith('https://placehold.co')}
+                    />
+                  </div>
+                  <div className="flex-grow space-y-2 md:space-y-3 w-full">
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3">
+                      {product.description}
+                    </p>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
+                      <p className="text-xl font-bold text-primary">
+                        {product.price}
+                      </p>
+                      <Button disabled={product.comingSoon} size="sm" className="w-full sm:w-auto">
+                        <ShoppingCart className="mr-2 h-4 w-4" />
+                        {product.comingSoon ? "Em Breve" : "Saiba Mais"}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </CardContent>
       </Card>
     </div>
