@@ -68,30 +68,21 @@ export default function HomePage() {
               >
                 <Card
                   className="w-[170px] min-w-[170px] sm:w-[180px] sm:min-w-[180px] md:w-[200px] md:min-w-[200px]
-                             h-[255px] sm:h-[270px] md:h-[300px] 
+                             h-[255px] sm:h-[270px] md:h-[300px]
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
-                             flex flex-col"
+                             flex flex-col relative overflow-hidden" // Added relative and overflow-hidden
                 >
                   {activity.imageUrl ? (
-                    <>
-                      <div className="relative w-full aspect-[2/3] overflow-hidden rounded-t-lg">
-                        <Image
-                          src={activity.imageUrl}
-                          alt={`Capa da atividade: ${activity.title}`}
-                          fill
-                          sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
-                          className="object-cover transition-transform duration-300 group-hover:scale-110"
-                          data-ai-hint={activity.imageHint || "atividade infantil"}
-                          unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
-                        />
-                      </div>
-                      <div className="p-3 text-center flex-grow flex flex-col justify-center">
-                        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
-                          {activity.title}
-                        </h3>
-                      </div>
-                    </>
+                    <Image
+                      src={activity.imageUrl}
+                      alt={`Capa da atividade: ${activity.title}`}
+                      fill
+                      sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
+                      className="object-contain transition-transform duration-300" // Changed to object-contain, removed group-hover:scale
+                      data-ai-hint={activity.imageHint || "atividade infantil"}
+                      unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
+                    />
                   ) : (
                     <div className="flex-grow flex flex-col items-center justify-center p-4 text-center">
                       <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
