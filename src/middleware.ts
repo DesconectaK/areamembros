@@ -3,6 +3,14 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
+  // Temporariamente desabilitar a autenticação para desenvolvimento de outras funcionalidades.
+  // Isso permitirá o acesso a todas as páginas sem login.
+  // A página de login (/login) em si ainda funcionará e redirecionará
+  // para a página principal se as credenciais corretas forem inseridas.
+  return NextResponse.next();
+
+  /*
+  // Lógica de autenticação original (atualmente comentada)
   const authToken = request.cookies.get('auth_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -10,16 +18,17 @@ export function middleware(request: NextRequest) {
   const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
 
   if (authToken && isPublicPath) {
-    // If authenticated and trying to access login page, redirect to home
+    // Se autenticado e tentando acessar a página de login, redirecionar para home
     return NextResponse.redirect(new URL('/', request.url));
   }
 
   if (!authToken && !isPublicPath) {
-    // If not authenticated and trying to access a protected page, redirect to login
+    // Se não autenticado e tentando acessar uma página protegida, redirecionar para login
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
   return NextResponse.next();
+  */
 }
 
 export const config = {
