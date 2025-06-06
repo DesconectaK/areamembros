@@ -53,7 +53,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           )}
 
           <p className="mb-4 text-sm text-muted-foreground">
-            Abaixo, uma prévia ou imagem relacionada ao conteúdo do módulo.
+            Abaixo, uma prévia do conteúdo.
           </p>
           <div className="mt-6 flex justify-center">
             <Image
