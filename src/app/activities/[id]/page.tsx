@@ -18,7 +18,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
   // Exemplo: const activityData = await fetchActivityData(id);
   // E então usar activityData.description e activityData.pdfUrl
 
-  const activityDescription = "Descubra 100 atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.";
+  const activityDescription = "Descubra atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.";
   const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing";
 
   return (
