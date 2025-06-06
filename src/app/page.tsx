@@ -53,6 +53,54 @@ const activities = [
     imageUrl: "https://placehold.co/200x300.png",
     imageHint: "diy musical instruments",
   },
+  {
+    id: "activity-9",
+    title: "Jardinagem para Crianças",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "kids gardening nature",
+  },
+  {
+    id: "activity-10",
+    title: "Contação de Histórias Criativa",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "storytelling imagination",
+  },
+  {
+    id: "activity-11",
+    title: "Desenho Livre e Expressivo",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "children drawing art",
+  },
+  {
+    id: "activity-12",
+    title: "Modelagem com Massinha",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "playdough modeling kids",
+  },
+  {
+    id: "activity-13",
+    title: "Brincadeiras com Água",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "water play fun",
+  },
+  {
+    id: "activity-14",
+    title: "Dança e Movimento",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "kids dance movement",
+  },
+  {
+    id: "activity-15",
+    title: "Piquenique Divertido",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "family picnic food",
+  },
+  {
+    id: "activity-16",
+    title: "Explorando Texturas",
+    imageUrl: "https://placehold.co/200x300.png",
+    imageHint: "sensory play textures",
+  },
 ];
 
 export default function HomePage() {
