@@ -3,13 +3,10 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Temporariamente desabilitar a autenticação para desenvolvimento de outras funcionalidades.
-  // Isso permitirá o acesso a todas as páginas sem login.
-  // A página de login (/login) em si ainda funcionará e redirecionará
-  // para a página principal se as credenciais corretas forem inseridas.
-  // return NextResponse.next(); // Linha que desabilitava a autenticação agora está comentada
+  // Lógica de autenticação temporariamente desabilitada para permitir acesso direto.
+  return NextResponse.next();
 
-  // Lógica de autenticação original (agora ativa)
+  /* Lógica de autenticação original (agora inativa)
   const authToken = request.cookies.get('auth_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -27,6 +24,7 @@ export function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
+  */
 }
 
 export const config = {

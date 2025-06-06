@@ -48,15 +48,19 @@ export default function LoginPage() {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1000));
 
+    // Mesmo com a autenticação "inativa", simulamos o processo
+    // para manter a experiência do usuário e definir o cookie.
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
         description: "Redirecionando para a plataforma...",
       });
-      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7);
+      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
       router.push("/");
-      router.refresh();
+      router.refresh(); 
     } else {
+      // Esta parte não deve ser alcançada se os campos forem readOnly
+      // e os valores fixos estiverem corretos.
       toast({
         variant: "destructive",
         title: "Erro no Login",
@@ -102,6 +106,7 @@ export default function LoginPage() {
                           placeholder="Seu email gerado" 
                           className="pl-10 rounded-lg" 
                           {...field} 
+                          readOnly // Torna o campo somente leitura
                           aria-label="Email"
                         />
                       </div>
@@ -124,6 +129,7 @@ export default function LoginPage() {
                           placeholder="Sua senha gerada"
                           className="pl-10 pr-10 rounded-lg"
                           {...field} 
+                          readOnly // Torna o campo somente leitura
                           aria-label="Senha"
                         />
                         <button
@@ -161,4 +167,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
