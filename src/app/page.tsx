@@ -8,14 +8,15 @@ const activities = [
   {
     id: "activity-1",
     title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    imageUrl: "/images/imagem-capa-modulo1.png", // Corrigido aqui
+    imageUrl: "https://placehold.co/200x300.png", // Retornando ao placeholder
     imageHint: "activity book cover",
   },
   {
     id: "activity-2",
     title: "Caça ao Tesouro no Jardim",
-    imageUrl: "https://placehold.co/200x300.png",
+    imageUrl: "/images/imagem-capa-modulo1.png", // Movendo a imagem para cá
     imageHint: "children treasure hunt",
+    unoptimized: false, // Imagem local, otimização pode ser usada
   },
   {
     id: "activity-3",
@@ -144,7 +145,7 @@ export default function HomePage() {
                       // descomentando a linha abaixo e garantindo que o domínio 'drive.google.com'
                       // esteja configurado em next.config.ts.
                       // No entanto, o ideal é hospedar a imagem localmente na pasta 'public'.
-                      unoptimized={activity.imageUrl.includes('drive.google.com')}
+                      unoptimized={activity.imageUrl.includes('drive.google.com') || (activity as any).unoptimized === true}
                     />
                   </div>
                 </Card>
