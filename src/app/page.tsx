@@ -29,8 +29,6 @@ const activities = [
   {
     id: "activity-5",
     title: "KIT TDAH/TEA",
-    imageUrl: "/images/capatea.png",
-    imageHint: "TDAH TEA",
   },
 ];
 
