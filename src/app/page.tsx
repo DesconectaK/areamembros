@@ -51,13 +51,13 @@ export default function HomePage() {
       </div>
 
       {/* Banner Placeholder */}
-      <div 
-        className="w-full h-48 bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
+      <div
+        className="relative w-full aspect-[4/1] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
         aria-label="Espaço para banner promocional"
       >
-        <p className="text-lg text-center px-4">
+        <p className="text-sm md:text-lg text-center px-4">
           Espaço para o Banner<br />
-          (Sugestão de tamanho: 1200x300px)
+          (Sugerimos proporção 4:1, e.g., 1200x300px)
         </p>
       </div>
 
@@ -86,7 +86,7 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      unoptimized={activity.unoptimized}
+                      unoptimized={activity.unoptimized ?? (activity.imageUrl.startsWith('https://placehold.co'))}
                     />
                   </div>
                 </Card>
