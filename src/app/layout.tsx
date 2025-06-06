@@ -21,7 +21,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={cn(
+      <body 
+        suppressHydrationWarning // Added to handle potential server-injected attributes
+        className={cn(
         "font-body antialiased flex flex-col min-h-screen bg-background text-foreground"
       )}>
         <main className="flex-grow pb-nav-height">
