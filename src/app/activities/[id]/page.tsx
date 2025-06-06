@@ -33,9 +33,6 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <p className="text-lg text-muted-foreground mb-2">
-            Você está visualizando a atividade com ID: <span className="font-semibold text-primary">{id}</span>
-          </p>
           
           <p className="text-md text-foreground mt-4 mb-6 px-4">
             {activityDescription}
