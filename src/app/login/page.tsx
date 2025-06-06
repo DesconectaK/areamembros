@@ -27,8 +27,8 @@ const loginFormSchema = z.object({
 
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
-const FIXED_EMAIL = "leandrodesconecta";
-const FIXED_PASSWORD = "desconecta@";
+const FIXED_EMAIL = "desconectakids@gmail.com";
+const FIXED_PASSWORD = "desconeta@";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -51,19 +51,19 @@ export default function LoginPage() {
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
-        description: "Redirecionando...",
+        description: "Redirecionando para a página principal...",
       });
       // Set auth cookie
       document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
-      router.push("/");
-      router.refresh(); // Garante que o middleware reavalie
+      router.push("/"); // Redireciona para a página principal
+      router.refresh(); // Garante que o middleware reavalie e o layout correto seja carregado
     } else {
       toast({
         variant: "destructive",
         title: "Erro no Login",
         description: "Email ou senha inválidos.",
       });
-      form.setError("email", { type: "manual", message: " " }); // Clear specific errors if desired, or just show toast
+      form.setError("email", { type: "manual", message: " " });
       form.setError("password", { type: "manual", message: "Credenciais inválidas" });
     }
     setIsLoading(false);
@@ -95,7 +95,7 @@ export default function LoginPage() {
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input 
                           type="text"
-                          placeholder="seuemaildesconecta" 
+                          placeholder="seuemail@dominio.com" 
                           className="pl-10 rounded-lg" 
                           {...field} 
                           aria-label="Email"
@@ -147,7 +147,7 @@ export default function LoginPage() {
         </CardContent>
       </Card>
        <p className="text-center text-xs text-muted-foreground mt-8">
-        Email: leandrodesconecta | Senha: desconecta@
+        Email: desconectakids@gmail.com | Senha: desconeta@
       </p>
     </div>
   );
