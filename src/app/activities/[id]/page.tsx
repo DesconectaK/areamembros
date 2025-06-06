@@ -1,7 +1,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { FileText, Download } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type ActivityDetailPageProps = {
   params: {
@@ -12,8 +14,13 @@ type ActivityDetailPageProps = {
 export default function ActivityDetailPage({ params }: ActivityDetailPageProps) {
   const { id } = params;
 
-  // You would typically fetch activity details based on the ID here
-  // For now, we'll just display the ID and a placeholder message.
+  // No futuro, você pode buscar dados específicos da atividade/módulo com base no 'id'
+  // Exemplo: const activityData = await fetchActivityData(id);
+  // E então usar activityData.description e activityData.pdfUrl
+
+  const activityTitle = "Módulo Incrível"; // Placeholder
+  const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder
+  const pdfUrl = "#"; // Placeholder - substitua pela URL real do PDF
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
@@ -22,16 +29,37 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           <div className="flex items-center justify-center mb-4">
             <FileText size={48} className="text-primary mr-3" />
             <CardTitle className="text-center text-3xl font-headline">
-              Detalhes da Atividade
+              {/* Poderia ser dinâmico com base no ID, ex: activityData.title */}
+              Detalhes da Atividade: {activityTitle}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-muted-foreground mb-2">
             Você está visualizando a atividade com ID: <span className="font-semibold text-primary">{id}</span>
           </p>
-          <p className="mb-4">
-            Aqui será exibido o conteúdo específico desta atividade/módulo.
+          
+          <p className="text-md text-foreground mt-4 mb-6 px-4">
+            {/* Poderia ser dinâmico, ex: activityData.description */}
+            {activityDescription}
+          </p>
+
+          {pdfUrl !== "#" ? (
+            <Button asChild className="mb-6">
+              <Link href={pdfUrl} target="_blank" rel="noopener noreferrer">
+                <Download size={20} className="mr-2" />
+                Visualizar PDF do Módulo
+              </Link>
+            </Button>
+          ) : (
+            <Button disabled className="mb-6">
+              <Download size={20} className="mr-2" />
+              PDF Indisponível
+            </Button>
+          )}
+
+          <p className="mb-4 text-sm text-muted-foreground">
+            Abaixo, uma prévia ou imagem relacionada ao conteúdo do módulo.
           </p>
           <div className="mt-6 flex justify-center">
             <Image
