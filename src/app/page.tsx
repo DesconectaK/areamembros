@@ -39,15 +39,6 @@ const activities = [
 export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
-          Bem-vinda(o) ao Desconecta!
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground mt-2">
-          Acesse as atividades e veja a magia acontecer.
-        </p>
-      </div>
-
       <div
         className="relative w-full aspect-[4/1] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
         aria-label="Espaço para banner promocional"
