@@ -3,11 +3,11 @@ import type {NextConfig} from 'next';
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval' 'unsafe-inline'" : ""};
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' data: https://placehold.co https://drive.google.com;
     font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com;
-    connect-src 'self';
+    connect-src 'self' ws:;
     frame-ancestors 'self';
     form-action 'self';
     base-uri 'self';
@@ -60,7 +60,7 @@ const nextConfig: NextConfig = {
     return [
       {
         // Apply these headers to all routes in your application.
-        source: '/(.*)', // Alterado de '/:path*' para '/(.*)' para cobrir todas as rotas de forma mais ampla
+        source: '/(.*)',
         headers: securityHeaders,
       },
     ];
