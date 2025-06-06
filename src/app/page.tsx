@@ -1,15 +1,20 @@
 
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
 
 const activities = [
   {
     id: "activity-1",
     title: "100 ATIVIDADES CRIATIVAS",
+    imageUrl: "/images/capaatividades.png",
+    imageHint: "atividades criativas",
   },
   {
     id: "activity-2",
     title: "50 BRINCADEIRAS CRIATIVAS",
+    imageUrl: "/images/capabrincadeiras.png",
+    imageHint: "brincadeiras criativas",
   },
   {
     id: "activity-3",
@@ -40,6 +45,7 @@ export default function HomePage() {
       <div
         className="relative w-full aspect-[4/1] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
         aria-label="Espaço para banner promocional"
+        data-ai-hint="banner promocional"
       >
         <p className="text-sm md:text-lg text-center px-4">
           Espaço para o Banner<br />
@@ -65,11 +71,34 @@ export default function HomePage() {
                              h-[255px] sm:h-[270px] md:h-[300px] 
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
-                             flex flex-col items-center justify-center p-4 text-center"
+                             flex flex-col"
                 >
-                  <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
-                    {activity.title}
-                  </h3>
+                  {activity.imageUrl ? (
+                    <>
+                      <div className="relative w-full aspect-[2/3] overflow-hidden rounded-t-lg">
+                        <Image
+                          src={activity.imageUrl}
+                          alt={`Capa da atividade: ${activity.title}`}
+                          fill
+                          sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                          data-ai-hint={activity.imageHint || "atividade infantil"}
+                          unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
+                        />
+                      </div>
+                      <div className="p-3 text-center flex-grow flex flex-col justify-center">
+                        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                          {activity.title}
+                        </h3>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex-grow flex flex-col items-center justify-center p-4 text-center">
+                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                        {activity.title}
+                      </h3>
+                    </div>
+                  )}
                 </Card>
               </Link>
             ))}
