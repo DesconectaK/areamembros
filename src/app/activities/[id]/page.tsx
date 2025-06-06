@@ -25,13 +25,13 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
       <Card className="w-full max-w-2xl shadow-xl">
         <CardHeader>
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-1">
             <FileText size={48} className="text-primary mr-3" />
             <CardTitle className="text-center text-3xl font-headline">
               100 ATIVIDADES CRIATIVAS
             </CardTitle>
           </div>
-          <h2 className="text-center text-2xl font-headline font-bold text-primary">
+          <h2 className="text-center text-xl font-headline font-bold text-primary">
             Quer transformar o aprendizado dos seus filhos?
           </h2>
         </CardHeader>
