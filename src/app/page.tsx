@@ -46,7 +46,7 @@ export default function HomePage() {
     <div className="container mx-auto p-4 md:p-6 lg:p-8 space-y-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">Bem-Vinda(o) ao Desconecta!</h1>
-        <p className="text-md md:text-lg text-muted-foreground mt-2">Acesse o conteúdo abaixo e deixe a magia acontecer!</p>
+        <p className="text-md md:text-lg text-muted-foreground mt-2">Acesse o conteúdo abaixo e veja a magia acontecer.</p>
       </div>
 
       <div className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-4 scroll-smooth snap-x snap-mandatory 
