@@ -110,12 +110,6 @@ export default function HomePage() {
         <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
           Bem-vinda(o) ao Desconecta!
         </h1>
-        <h2 className="mt-3 text-2xl md:text-3xl font-headline font-bold text-primary">
-          Quer transformar o aprendizado dos seus filhos?
-        </h2>
-        <p className="mt-3 text-md md:text-lg text-muted-foreground max-w-xl mx-auto">
-          Descubra atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.
-        </p>
       </div>
 
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
