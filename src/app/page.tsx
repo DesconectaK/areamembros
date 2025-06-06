@@ -8,7 +8,12 @@ const activities = [
   {
     id: "activity-1",
     title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    imageUrl: "https://drive.google.com/uc?export=view&id=1MkUbGdg44e-KExk7I4A0JIqCzcL25ODc",
+    // Para usar sua imagem personalizada:
+    // 1. Baixe a imagem do Google Drive.
+    // 2. Crie a pasta 'public/images/' no seu projeto.
+    // 3. Coloque a imagem lá (ex: 'public/images/capa-modulo-1.png').
+    // 4. Altere o imageUrl abaixo para: '/images/capa-modulo-1.png'
+    imageUrl: "https://placehold.co/200x300.png", // Revertido para placeholder
     imageHint: "activity book cover",
   },
   {
@@ -140,10 +145,10 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      // Adicionando unoptimized para links externos que não são de domínios de imagem conhecidos e otimizados
-                      // Isso é especialmente útil para links como os do Google Drive que podem não ser URLs de imagem diretas.
-                      // No entanto, isso desabilita a otimização de imagem do Next.js para esta imagem específica.
-                      // A melhor prática ainda é usar um link de imagem direto ou auto-hospedar.
+                      // Se a imagem for do Google Drive, pode ser necessário desabilitar a otimização
+                      // descomentando a linha abaixo e garantindo que o domínio 'drive.google.com'
+                      // esteja configurado em next.config.ts.
+                      // No entanto, o ideal é hospedar a imagem localmente na pasta 'public'.
                       unoptimized={activity.imageUrl.includes('drive.google.com')}
                     />
                   </div>
