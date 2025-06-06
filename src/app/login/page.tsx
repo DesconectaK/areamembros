@@ -51,7 +51,7 @@ export default function LoginPage() {
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
-        description: "Redirecionando para a página principal...",
+        description: "Redirecionando para a plataforma...",
       });
       // Set auth cookie
       document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
@@ -98,7 +98,7 @@ export default function LoginPage() {
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input 
                           type="text"
-                          placeholder="seuemail@dominio.com" 
+                          placeholder="Seu email gerado" 
                           className="pl-10 rounded-lg" 
                           {...field} 
                           aria-label="Email"
