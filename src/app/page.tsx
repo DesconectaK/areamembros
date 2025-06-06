@@ -8,8 +8,8 @@ const activities = [
   {
     id: "activity-1",
     title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "kids painting art",
+    imageUrl: "https://drive.google.com/file/d/1MkUbGdg44e-KExk7I4A0JIqCzcL25ODc/view?usp=sharing",
+    imageHint: "activity book cover",
   },
   {
     id: "activity-2",
@@ -140,6 +140,11 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
+                      // Adicionando unoptimized para links externos que não são de domínios de imagem conhecidos e otimizados
+                      // Isso é especialmente útil para links como os do Google Drive que podem não ser URLs de imagem diretas.
+                      // No entanto, isso desabilita a otimização de imagem do Next.js para esta imagem específica.
+                      // A melhor prática ainda é usar um link de imagem direto ou auto-hospedar.
+                      unoptimized={activity.imageUrl.includes('drive.google.com')}
                     />
                   </div>
                 </Card>
