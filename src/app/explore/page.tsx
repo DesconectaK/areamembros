@@ -37,7 +37,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            Sua dedicação em explorar e aprender é inspiradora! Por isso, criamos algo ainda mais especial para quem, como você, sempre busca o próximo nível.
+            Dicas valiosas que qualquer pai e mãe TEM que ter, sem sombra de dúvidas!
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
