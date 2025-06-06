@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Lock, LogIn } from "lucide-react";
+import { Mail, Lock, LogIn, Eye, EyeOff } from "lucide-react";
 
 const loginFormSchema = z.object({
   email: z.string().min(1, { message: "Email é obrigatório." }),
@@ -34,12 +34,13 @@ export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [passwordVisuallyRevealed, setPasswordVisuallyRevealed] = React.useState(true);
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: FIXED_EMAIL,
+      password: FIXED_PASSWORD,
     },
   });
 
@@ -119,12 +120,20 @@ export default function LoginPage() {
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input 
-                          type="password" 
-                          placeholder="********" 
-                          className="pl-10 rounded-lg" 
+                          type="text" // Senha sempre visível
+                          placeholder="Sua senha gerada"
+                          className="pl-10 pr-10 rounded-lg" // Espaço para o ícone do olho
                           {...field} 
                           aria-label="Senha"
                         />
+                        <button
+                          type="button"
+                          onClick={() => setPasswordVisuallyRevealed(!passwordVisuallyRevealed)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground focus:outline-none"
+                          aria-label={passwordVisuallyRevealed ? "Esconder visualização da senha" : "Mostrar visualização da senha"}
+                        >
+                          {passwordVisuallyRevealed ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                        </button>
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -149,9 +158,6 @@ export default function LoginPage() {
           </Form>
         </CardContent>
       </Card>
-       <p className="text-center text-xs text-muted-foreground mt-8">
-        Email: desconectakids@gmail.com | Senha: desconeta@
-      </p>
     </div>
   );
 }
