@@ -69,9 +69,14 @@ export default function SettingsPage() {
             <Label htmlFor="notifications-switch" className="text-base">Notificações Push</Label>
             <Switch id="notifications-switch" aria-label="Toggle push notifications" />
           </div>
-          <div className="flex items-center justify-between">
-            <Label htmlFor="dark-mode-switch" className="text-base">Modo Escuro</Label>
-            <Switch id="dark-mode-switch" defaultChecked disabled aria-label="Toggle dark mode (disabled)" />
+          <div>
+            <div className="flex items-center justify-between">
+              <Label htmlFor="dark-mode-switch" className="text-base">Modo Escuro</Label>
+              <Switch id="dark-mode-switch" defaultChecked disabled aria-label="Toggle dark mode (disabled)" />
+            </div>
+            <p className="text-xs text-muted-foreground mt-1 text-right">
+              Fixo para otimizar sua experiência visual.
+            </p>
           </div>
           <div className="flex items-center justify-between">
             <Label htmlFor="language-select" className="text-base">Idioma</Label>
