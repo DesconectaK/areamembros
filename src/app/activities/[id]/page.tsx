@@ -31,13 +31,12 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
               100 ATIVIDADES CRIATIVAS
             </CardTitle>
           </div>
-          <h2 className="text-center text-xl font-headline font-bold text-primary mb-[-1.25rem]">
-            Quer transformar o aprendizado dos seus filhos?
-          </h2>
         </CardHeader>
         <CardContent className="text-center">
-          
-          <p className="text-md text-foreground mt-4 mb-6 px-4">
+          <h2 className="text-center text-xl font-headline font-bold text-primary mt-4 mb-3">
+            Quer transformar o aprendizado dos seus filhos?
+          </h2>
+          <p className="text-md text-foreground mb-6 px-4">
             {activityDescription}
           </p>
 
