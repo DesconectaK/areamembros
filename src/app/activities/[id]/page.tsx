@@ -18,9 +18,9 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
   // Exemplo: const activityData = await fetchActivityData(id);
   // E então usar activityData.description e activityData.pdfUrl
 
-  const activityTitle = "Módulo Incrível"; // Placeholder
-  const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder
-  const pdfUrl = "#"; // Placeholder - substitua pela URL real do PDF
+  const activityTitle = "Módulo Incrível"; // Placeholder - pode ser dinâmico
+  const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder - pode ser dinâmico
+  const pdfUrl = "https://drive.google.com/file/d/1QOnpnLQl8rYjIzkDsxfBd1vc3I5Uht8F/view?usp=drive_link"; // URL do PDF fornecida
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
