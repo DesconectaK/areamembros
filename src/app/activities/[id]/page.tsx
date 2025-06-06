@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, AlertTriangle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 type ActivityDetailPageProps = {
   params: {
@@ -35,6 +36,12 @@ const activitiesData: Record<string, ActivityContent> = {
     subheadline: "Prontos para dar vida com cores?",
     description: "Descubra modelos para colorir que estimulam a criatividade e a coordenação. Perfeitos para todas as idades, esses modelos oferecem uma maneira divertida de explorar cores e formas enquanto se aprende e se diverte.",
     pdfUrl: "https://drive.google.com/file/d/1j6WhKrXEHSZAh--RsxJQMv0STNMVQhsd/view?usp=sharing",
+  },
+  "activity-4": {
+    title: "50 ATIVIDADES MUSICAIS",
+    subheadline: "Que tal explorar o mundo da música?",
+    description: "Descubra atividades musicais que despertam o ritmo e a melodia. Perfeitas para todas as idades, essas atividades são uma maneira divertida de desenvolver habilidades musicais enquanto se aprende e se diverte.",
+    pdfUrl: "https://drive.google.com/file/d/1lL7Atmnpa3yRwm0c9OeDyw0DdObx-sN3/view?usp=sharing",
   },
 };
 

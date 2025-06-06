@@ -25,7 +25,7 @@ const activities = [
   },
   {
     id: "activity-4",
-    title: "Origami: Dobraduras Divertidas",
+    title: "50 ATIVIDADES MUSICAIS",
     imageUrl: "https://placehold.co/200x300.png",
     imageHint: "origami paper craft",
   },
