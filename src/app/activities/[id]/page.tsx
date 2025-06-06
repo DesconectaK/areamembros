@@ -2,7 +2,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 type ActivityDetailPageProps = {
@@ -16,10 +15,10 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
 
   // No futuro, você pode buscar dados específicos da atividade/módulo com base no 'id'
   // Exemplo: const activityData = await fetchActivityData(id);
-  // E então usar activityData.description e activityData.pdfUrl
+  // E então usar activityData.description
 
   const activityDescription = "Descubra atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.";
-  const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing";
+  const pdfUrl = "/pdfs/100-atividades.pdf"; // Updated to local PDF
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
