@@ -28,7 +28,7 @@ const loginFormSchema = z.object({
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
 const FIXED_EMAIL = "desconectakids@gmail.com";
-const FIXED_PASSWORD = "desconeta@";
+const FIXED_PASSWORD = "desconeta@"; // Corrigido aqui
 
 export default function LoginPage() {
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function LoginPage() {
         "path=/",
         `max-age=${60 * 60 * 24 * 7}`, // 7 dias
         "SameSite=Lax",
-        "Secure" // Assumindo que a aplicação será servida por HTTPS em produção
+        "Secure"
       ];
       document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
       
