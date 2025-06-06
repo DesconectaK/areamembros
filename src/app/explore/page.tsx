@@ -7,20 +7,20 @@ import Image from "next/image";
 const upsellProducts = [
   {
     id: "upsell-1",
-    title: "Super Kit de Planejamento Semanal",
-    description: "Transforme sua rotina com nosso kit exclusivo de planejamento, incluindo planners, adesivos e guias práticos. Organize suas semanas e alcance seus objetivos com mais facilidade e criatividade!",
-    price: "R$ 49,90",
+    title: "Super Kit de Planejamento Semanal Avançado",
+    description: "Eleve sua organização a um novo patamar com nosso kit premium, incluindo planners estratégicos, adesivos motivacionais e guias de produtividade. Conquiste suas metas com maestria e criatividade!",
+    price: "R$ 69,90",
     imageUrl: "https://placehold.co/300x300.png",
-    imageHint: "kit planejamento",
+    imageHint: "kit planejamento premium",
     comingSoon: true,
   },
   {
     id: "upsell-2",
-    title: "Curso Online: Parentalidade Consciente",
-    description: "Aprenda técnicas e estratégias para uma parentalidade mais conectada e eficaz. Módulos interativos, dicas de especialistas e uma comunidade de apoio esperam por você.",
-    price: "R$ 97,00",
+    title: "Masterclass Online: Parentalidade Positiva e Resiliente",
+    description: "Aprofunde seus conhecimentos com técnicas avançadas para uma parentalidade transformadora. Módulos interativos, sessões com especialistas e uma comunidade exclusiva esperam por você.",
+    price: "R$ 127,00",
     imageUrl: "https://placehold.co/300x300.png",
-    imageHint: "curso parentalidade",
+    imageHint: "curso parentalidade masterclass",
     comingSoon: true,
   },
 ];
@@ -33,11 +33,11 @@ export default function ExplorePage() {
           <div className="flex items-center justify-center mb-2">
             <Compass size={40} className="text-primary mr-3" />
             <CardTitle className="text-center text-2xl md:text-3xl font-headline">
-              Explorar Novidades
+              Achou que já tinha recebido tudo? Espere só até ver o que preparamos agora!
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            Descubra produtos e recursos exclusivos que preparamos para você!
+            Sua dedicação em explorar e aprender é inspiradora! Por isso, criamos algo ainda mais especial para quem, como você, sempre busca o próximo nível.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
