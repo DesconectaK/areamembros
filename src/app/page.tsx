@@ -107,12 +107,18 @@ export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">Bem-vinda(o) ao Desconecta!</h1>
-        <p className="text-md md:text-lg text-muted-foreground mt-2">Acesse o conteúdo abaixo e veja a magia acontecer.</p>
+        <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+          Bem-vinda(o) ao Desconecta!
+        </h1>
+        <h2 className="mt-3 text-2xl md:text-3xl font-headline font-bold text-primary">
+          Quer transformar o aprendizado dos seus filhos?
+        </h2>
+        <p className="mt-3 text-md md:text-lg text-muted-foreground max-w-xl mx-auto">
+          Descubra atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.
+        </p>
       </div>
 
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
-        {/* O título da seção "100 ATIVIDADES" foi removido conforme solicitado */}
         <div className="relative">
           <div
             className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory
@@ -120,37 +126,32 @@ export default function HomePage() {
           >
             {activities.map((activity) => (
               <Link
-                href={`/activities/${activity.id}`} // Ajuste esta rota conforme necessário para seus módulos
+                href={`/activities/${activity.id}`}
                 key={activity.id}
                 className="flex-shrink-0 snap-start group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
-                aria-label={`Acessar atividade: ${activity.title}`} // Mantido para acessibilidade, mesmo que o título não seja visual
+                aria-label={`Acessar atividade: ${activity.title}`}
               >
                 <Card
                   className="w-[170px] min-w-[170px] sm:w-[180px] sm:min-w-[180px] md:w-[200px] md:min-w-[200px]
                              bg-card rounded-lg shadow-lg overflow-hidden border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer"
                 >
-                  <div className="relative w-full aspect-[2/3]"> {/* Aspect ratio vertical */}
+                  <div className="relative w-full aspect-[2/3]">
                     <Image
                       src={activity.imageUrl}
-                      alt={activity.title} // Mantido para acessibilidade
+                      alt={activity.title} 
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
                     />
                   </div>
-                  {/* A div com o título h3 foi removida conforme solicitado */}
                 </Card>
               </Link>
             ))}
-            {/* Adicionando um espaçador no final para melhor visualização da sombra do último card */}
             <div className="flex-shrink-0 w-1 h-1 snap-end"></div>
           </div>
         </div>
       </section>
-
-      {/* Você pode adicionar mais seções como a de cima aqui, se necessário */}
-
     </div>
   );
 }
