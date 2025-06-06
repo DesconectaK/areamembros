@@ -42,7 +42,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
             <Button asChild className="mb-6">
               <Link href={pdfUrl} target="_blank" rel="noopener noreferrer">
                 <Download size={20} className="mr-2" />
-                VISUALIZAR ATIVIDADES
+                Visualizar Atividades
               </Link>
             </Button>
           ) : (
