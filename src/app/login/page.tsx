@@ -34,7 +34,7 @@ export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
-  const [passwordVisuallyRevealed, setPasswordVisuallyRevealed] = React.useState(true);
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(true); // Senha começa visível
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
@@ -46,7 +46,6 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
-    // Simula uma chamada de API
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
@@ -54,10 +53,9 @@ export default function LoginPage() {
         title: "Login bem-sucedido!",
         description: "Redirecionando para a plataforma...",
       });
-      // Set auth cookie
-      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
-      router.push("/"); // Redireciona para a página principal
-      router.refresh(); // Garante que o middleware reavalie e o layout correto seja carregado
+      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7);
+      router.push("/");
+      router.refresh();
     } else {
       toast({
         variant: "destructive",
@@ -69,6 +67,8 @@ export default function LoginPage() {
     }
     setIsLoading(false);
   }
+
+  const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
   return (
     <div className="bg-black min-h-screen flex flex-col items-center justify-center p-4">
@@ -84,7 +84,7 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-center text-muted-foreground mb-6 px-4">
-            Utilize as credenciais abaixo, preparadas especialmente para você, para entrar na plataforma:
+            Utilize as credenciais abaixo, preparadas especialmente para você!
           </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -120,19 +120,19 @@ export default function LoginPage() {
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input 
-                          type="text" // Senha sempre visível
+                          type={isPasswordVisible ? "text" : "password"}
                           placeholder="Sua senha gerada"
-                          className="pl-10 pr-10 rounded-lg" // Espaço para o ícone do olho
+                          className="pl-10 pr-10 rounded-lg"
                           {...field} 
                           aria-label="Senha"
                         />
                         <button
                           type="button"
-                          onClick={() => setPasswordVisuallyRevealed(!passwordVisuallyRevealed)}
+                          onClick={togglePasswordVisibility}
                           className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground focus:outline-none"
-                          aria-label={passwordVisuallyRevealed ? "Esconder visualização da senha" : "Mostrar visualização da senha"}
+                          aria-label={isPasswordVisible ? "Esconder senha" : "Mostrar senha"}
                         >
-                          {passwordVisuallyRevealed ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                          {isPasswordVisible ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                         </button>
                       </div>
                     </FormControl>
