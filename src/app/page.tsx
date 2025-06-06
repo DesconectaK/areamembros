@@ -14,9 +14,9 @@ const activities = [
   {
     id: "activity-2",
     title: "50 BRINCADEIRAS CRIATIVAS",
-    imageUrl: "/images/imagem-capa-modulo1.png", 
+    imageUrl: "/images/imagem-capa-modulo1.png",
     imageHint: "children playing games",
-    unoptimized: false, 
+    unoptimized: false,
   },
   {
     id: "activity-3",
@@ -28,7 +28,7 @@ const activities = [
     id: "activity-4",
     title: "50 ATIVIDADES MUSICAIS",
     imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "origami paper craft", // Note: This hint might be less relevant now, consider "musical notes kids" or similar if you change image
+    imageHint: "musical notes kids",
   },
   {
     id: "activity-5",
@@ -137,11 +137,11 @@ export default function HomePage() {
                   <div className="relative w-full aspect-[2/3]">
                     <Image
                       src={activity.imageUrl}
-                      alt={activity.title} 
+                      alt={activity.title}
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      unoptimized={activity.imageUrl.startsWith('https://placehold.co') ? undefined : (activity as any).unoptimized === true || (activity as any).unoptimized === false ? (activity as any).unoptimized : true}
+                      unoptimized={typeof activity.unoptimized === 'boolean' ? activity.unoptimized : false}
                     />
                   </div>
                 </Card>
