@@ -1,3 +1,4 @@
+
 "use client";
 
 import { usePathname } from 'next/navigation';
@@ -8,8 +9,13 @@ import { cn } from '@/lib/utils';
 export function BottomNavigationBar() {
   const pathname = usePathname();
 
+  // Do not render the navigation bar on the login page
+  if (pathname === '/login') {
+    return null;
+  }
+
   return (
-    <nav 
+    <nav
       className={cn(
         "fixed bottom-0 left-0 right-0 h-nav-height bg-nav-background border-t border-border/20 shadow-lg z-50",
         "flex items-center justify-around"
