@@ -8,7 +8,7 @@ const activities = [
   {
     id: "activity-1",
     title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    imageUrl: "https://drive.google.com/file/d/1MkUbGdg44e-KExk7I4A0JIqCzcL25ODc/view?usp=sharing",
+    imageUrl: "https://drive.google.com/uc?export=view&id=1MkUbGdg44e-KExk7I4A0JIqCzcL25ODc",
     imageHint: "activity book cover",
   },
   {
