@@ -18,29 +18,26 @@ interface ActivityContent {
 }
 
 const activitiesData: Record<string, ActivityContent> = {
-  "activity-1": { // Módulo 1 - 100 ATIVIDADES CRIATIVAS
+  "activity-1": {
     title: "100 ATIVIDADES CRIATIVAS",
     subheadline: "Quer transformar o aprendizado dos seus filhos?",
     description: "Descubra atividades criativas que vão além do comum, estimulando a imaginação e o desenvolvimento das crianças. Materiais pensados para criar momentos de aprendizado e diversão em família.",
     pdfUrl: "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing",
   },
-  "activity-2": { // Módulo 2 - 50 BRINCADEIRAS CRIATIVAS
+  "activity-2": {
     title: "50 BRINCADEIRAS CRIATIVAS",
     subheadline: "Que tal se divertir com brincadeiras criativas?",
     description: "Explore brincadeiras que estimulam a imaginação e ajudam no aprendizado. Perfeitas para todas as idades, essas brincadeiras são uma forma divertida de desenvolver habilidades e criar momentos inesquecíveis em família.",
     pdfUrl: "https://drive.google.com/file/d/1QOnpnLQl8rYjIzkDsxfBd1vc3I5Uht8F/view?usp=sharing",
   },
-  // Adicione mais atividades aqui com seus respectivos IDs
-  // Exemplo para activity-3, se existir:
-  // "activity-3": {
-  //   title: "Título da Atividade 3",
-  //   subheadline: "Subtítulo da Atividade 3",
-  //   description: "Descrição da Atividade 3.",
-  //   pdfUrl: "#", // Ou o link do PDF
-  // },
+  "activity-3": {
+    title: "50 MODELOS PARA COLORIR",
+    subheadline: "Prontos para dar vida com cores?",
+    description: "Descubra modelos para colorir que estimulam a criatividade e a coordenação. Perfeitos para todas as idades, esses modelos oferecem uma maneira divertida de explorar cores e formas enquanto se aprende e se diverte.",
+    pdfUrl: "https://drive.google.com/file/d/1j6WhKrXEHSZAh--RsxJQMv0STNMVQhsd/view?usp=sharing",
+  },
 };
 
-// Conteúdo padrão caso um ID não seja encontrado ou para atividades futuras ainda não definidas
 const defaultActivityContent: ActivityContent = {
   title: "Atividade em Preparação",
   subheadline: "Conteúdo exclusivo chegando em breve!",
@@ -50,9 +47,6 @@ const defaultActivityContent: ActivityContent = {
 
 export default function ActivityDetailPage({ params }: ActivityDetailPageProps) {
   const { id } = params;
-
-  // Busca os dados da atividade com base no 'id'.
-  // Se não encontrar, usa o conteúdo padrão.
   const activityContent = activitiesData[id] || defaultActivityContent;
   
   const { 
@@ -62,8 +56,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
     pdfUrl 
   } = activityContent;
 
-  if (!activitiesData[id] && id !== "activity-1" && id !== "activity-2") { // Mostrar aviso apenas para IDs não mapeados explicitamente
-     // (exceto os que já têm dados)
+  if (!activitiesData[id]) {
     return (
       <div className="container mx-auto p-4 flex flex-col items-center justify-center min-h-full pt-8">
         <Card className="w-full max-w-2xl shadow-xl">
@@ -87,7 +80,6 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
       </div>
     );
   }
-
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
@@ -126,9 +118,3 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
     </div>
   );
 }
-
-// Optional: If you have a known set of static paths, you can generate them at build time.
-// export async function generateStaticParams() {
-//   // Example: return Object.keys(activitiesData).map((id) => ({ id }));
-//   return [];
-// }

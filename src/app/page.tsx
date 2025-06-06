@@ -3,26 +3,25 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-// Dados de exemplo para as atividades
 const activities = [
   {
     id: "activity-1",
-    title: "100 ATIVIDADES CRIATIVAS", // Título atualizado
+    title: "100 ATIVIDADES CRIATIVAS",
     imageUrl: "https://placehold.co/200x300.png",
     imageHint: "activity book cover",
   },
   {
     id: "activity-2",
-    title: "50 BRINCADEIRAS CRIATIVAS", // Título atualizado
+    title: "50 BRINCADEIRAS CRIATIVAS",
     imageUrl: "/images/imagem-capa-modulo1.png", 
-    imageHint: "children playing games", // Hint atualizado para refletir brincadeiras
+    imageHint: "children playing games",
     unoptimized: false, 
   },
   {
     id: "activity-3",
-    title: "Teatro de Fantoches Reciclados",
+    title: "50 MODELOS PARA COLORIR",
     imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "puppet show crafts",
+    imageHint: "coloring pages art",
   },
   {
     id: "activity-4",
