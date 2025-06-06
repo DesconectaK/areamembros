@@ -79,7 +79,7 @@ export default function LoginPage() {
           </div>
           <CardTitle className="text-3xl font-headline text-primary">Acesso Liberado!</CardTitle>
           <CardDescription className="text-muted-foreground pt-1">
-            Seu acesso exclusivo foi gerado automaticamente.
+            Oba! Que bom te ver por aqui! Seu acesso exclusivo do Método Desconecta foi gerado automaticamente.
           </CardDescription>
         </CardHeader>
         <CardContent>
