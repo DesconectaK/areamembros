@@ -7,16 +7,16 @@ import Link from "next/link";
 const activities = [
   {
     id: "activity-1",
-    title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    imageUrl: "https://placehold.co/200x300.png", // Retornando ao placeholder
+    title: "100 ATIVIDADES CRIATIVAS", // Título atualizado
+    imageUrl: "https://placehold.co/200x300.png",
     imageHint: "activity book cover",
   },
   {
     id: "activity-2",
-    title: "Caça ao Tesouro no Jardim",
-    imageUrl: "/images/imagem-capa-modulo1.png", // Movendo a imagem para cá
-    imageHint: "children treasure hunt",
-    unoptimized: false, // Imagem local, otimização pode ser usada
+    title: "50 BRINCADEIRAS CRIATIVAS", // Título atualizado
+    imageUrl: "/images/imagem-capa-modulo1.png", 
+    imageHint: "children playing games", // Hint atualizado para refletir brincadeiras
+    unoptimized: false, 
   },
   {
     id: "activity-3",
@@ -141,10 +141,6 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      // Se a imagem for do Google Drive, pode ser necessário desabilitar a otimização
-                      // descomentando a linha abaixo e garantindo que o domínio 'drive.google.com'
-                      // esteja configurado em next.config.ts.
-                      // No entanto, o ideal é hospedar a imagem localmente na pasta 'public'.
                       unoptimized={activity.imageUrl.includes('drive.google.com') || (activity as any).unoptimized === true}
                     />
                   </div>
