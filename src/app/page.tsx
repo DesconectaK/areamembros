@@ -50,6 +50,17 @@ export default function HomePage() {
         </p>
       </div>
 
+      {/* Banner Placeholder */}
+      <div 
+        className="w-full h-48 bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
+        aria-label="Espaço para banner promocional"
+      >
+        <p className="text-lg text-center px-4">
+          Espaço para o Banner<br />
+          (Sugestão de tamanho: 1200x300px)
+        </p>
+      </div>
+
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
         <div className="relative">
           <div
@@ -75,7 +86,7 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      unoptimized={activity.unoptimized === true}
+                      unoptimized={activity.unoptimized}
                     />
                   </div>
                 </Card>
