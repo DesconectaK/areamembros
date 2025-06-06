@@ -84,7 +84,7 @@ export default function SettingsPage() {
                 </div>
                 <Switch id="dark-mode-switch" defaultChecked disabled aria-label="Toggle dark mode (disabled)" />
               </div>
-              <p className="text-xs text-muted-foreground mt-1 text-left ml-9">
+              <p className="text-xs text-muted-foreground mt-1 text-left ml-8">
                 Fixo para otimizar sua experiência visual no app.
               </p>
             </div>
@@ -109,3 +109,5 @@ export default function SettingsPage() {
     </div>
   );
 }
+
+    
