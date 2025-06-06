@@ -9,15 +9,18 @@ export function middleware(request: NextRequest) {
   const publicPaths = ['/login'];
   const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
 
+  // Se o usuário está autenticado (tem o cookie) e tenta acessar a página de login,
+  // redireciona para a página principal.
   if (authToken && isPublicPath) {
-    // Se autenticado e tentando acessar a página de login, redirecionar para home
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  if (!authToken && !isPublicPath) {
-    // Se não autenticado e tentando acessar uma página protegida, redirecionar para login
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
+  // Se o usuário NÃO está autenticado e tenta acessar uma página protegida,
+  // NÃO vamos mais redirecionar para o login. O acesso será permitido.
+  // O "login" é uma formalidade.
+  // if (!authToken && !isPublicPath) {
+  //   return NextResponse.redirect(new URL('/login', request.url));
+  // }
 
   return NextResponse.next();
 }
