@@ -20,7 +20,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
 
   const activityTitle = "Módulo Incrível"; // Placeholder - pode ser dinâmico
   const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder - pode ser dinâmico
-  const pdfUrl = "https://drive.google.com/file/d/1QOnpnLQl8rYjIzkDsxfBd1vc3I5Uht8F/view?usp=drive_link"; // URL do PDF fornecida
+  const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing"; // URL do PDF ATUALIZADA
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
