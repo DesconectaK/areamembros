@@ -1,5 +1,6 @@
+
 import type { LucideIcon } from 'lucide-react';
-import { Home, LayoutGrid, Compass, Settings as SettingsIcon } from 'lucide-react';
+import { Home, Compass, Settings as SettingsIcon, Search } from 'lucide-react'; // Adicionado Search para Explorar, se preferir.
 
 export interface NavItem {
   href: string;
@@ -10,7 +11,6 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'Principal', icon: Home, ariaLabel: 'Navigate to Principal page' },
-  { href: '/activities', label: 'Atividades', icon: LayoutGrid, ariaLabel: 'Navigate to Atividades page' },
-  { href: '/explore', label: 'Explorar', icon: Compass, ariaLabel: 'Navigate to Explorar page' },
+  { href: '/explore', label: 'Explorar', icon: Compass, ariaLabel: 'Navigate to Explorar page' }, // Usando Compass como antes, mas poderia ser Search
   { href: '/settings', label: 'Ajustes', icon: SettingsIcon, ariaLabel: 'Navigate to Ajustes page' },
 ];
