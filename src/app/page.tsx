@@ -7,8 +7,9 @@ const activities = [
   {
     id: "activity-1",
     title: "100 ATIVIDADES CRIATIVAS",
-    imageUrl: "https://placehold.co/200x300.png",
+    imageUrl: "/images/imagem-capa-modulo1.png",
     imageHint: "activity book cover",
+    unoptimized: false,
   },
   {
     id: "activity-2",
@@ -27,7 +28,7 @@ const activities = [
     id: "activity-4",
     title: "50 ATIVIDADES MUSICAIS",
     imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "origami paper craft",
+    imageHint: "origami paper craft", // Note: This hint might be less relevant now, consider "musical notes kids" or similar if you change image
   },
   {
     id: "activity-5",
@@ -140,7 +141,7 @@ export default function HomePage() {
                       fill
                       data-ai-hint={activity.imageHint}
                       className="object-cover"
-                      unoptimized={activity.imageUrl.includes('drive.google.com') || (activity as any).unoptimized === true}
+                      unoptimized={activity.imageUrl.startsWith('https://placehold.co') ? undefined : (activity as any).unoptimized === true || (activity as any).unoptimized === false ? (activity as any).unoptimized : true}
                     />
                   </div>
                 </Card>

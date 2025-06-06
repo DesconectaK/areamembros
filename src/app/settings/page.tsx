@@ -2,7 +2,7 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Settings as SettingsIcon, LogOut, UserCircle, ShieldCheck } from "lucide-react";
+import { Settings as SettingsIcon, LogOut, UserCircle, ShieldCheck, Bell, Moon, Globe } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
@@ -36,23 +36,25 @@ export default function SettingsPage() {
           </div>
         </CardHeader>
         <CardContent className="space-y-6">
+          
           <div className="text-center">
             <h2 className="text-xl font-headline font-bold text-primary mt-2 mb-4">
               Suas Informações de Acesso
             </h2>
           </div>
 
-          <div className="p-4 border rounded-lg bg-muted/30">
-            <div className="flex items-center mb-3">
-              <UserCircle size={20} className="text-primary mr-2" />
-              <p className="text-sm font-medium text-foreground">
-                Email de Acesso: <span className="font-normal text-muted-foreground">{USER_EMAIL}</span>
-              </p>
+          <div className="p-4 border rounded-lg bg-muted/30 space-y-3">
+            <div className="flex items-center">
+              <UserCircle size={20} className="text-primary mr-3 flex-shrink-0" />
+              <div>
+                <p className="text-sm font-medium text-foreground">Email de Acesso:</p>
+                <p className="text-sm text-muted-foreground">{USER_EMAIL}</p>
+              </div>
             </div>
             <div className="flex items-start">
-              <ShieldCheck size={32} className="text-primary mr-3 mt-1 flex-shrink-0" />
+              <ShieldCheck size={20} className="text-primary mr-3 mt-0.5 flex-shrink-0" />
               <p className="text-xs text-muted-foreground">
-                Suas credenciais de acesso (email e senha) são geradas automaticamente e vinculadas à sua compra para garantir sua segurança e exclusividade. Por isso, não é possível alterá-las por aqui. Fique tranquila(o), seu acesso está protegido!
+                Suas credenciais (email e senha) são geradas automaticamente e vinculadas à sua compra para garantir segurança e exclusividade. Por isso, não é possível alterá-las.
               </p>
             </div>
           </div>
@@ -65,22 +67,35 @@ export default function SettingsPage() {
             </h2>
           </div>
           
-          <div className="flex items-center justify-between">
-            <Label htmlFor="notifications-switch" className="text-base">Notificações Push</Label>
-            <Switch id="notifications-switch" aria-label="Toggle push notifications" />
-          </div>
-          <div>
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label htmlFor="dark-mode-switch" className="text-base">Modo Escuro</Label>
-              <Switch id="dark-mode-switch" defaultChecked disabled aria-label="Toggle dark mode (disabled)" />
+              <div className="flex items-center">
+                <Bell size={20} className="text-primary mr-3" />
+                <Label htmlFor="notifications-switch" className="text-base">Notificações Push</Label>
+              </div>
+              <Switch id="notifications-switch" aria-label="Toggle push notifications" />
             </div>
-            <p className="text-xs text-muted-foreground mt-1 text-right">
-              Fixo para otimizar sua experiência visual.
-            </p>
-          </div>
-          <div className="flex items-center justify-between">
-            <Label htmlFor="language-select" className="text-base">Idioma</Label>
-            <span className="text-muted-foreground">Português (Brasil)</span>
+            
+            <div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Moon size={20} className="text-primary mr-3" />
+                  <Label htmlFor="dark-mode-switch" className="text-base">Modo Escuro</Label>
+                </div>
+                <Switch id="dark-mode-switch" defaultChecked disabled aria-label="Toggle dark mode (disabled)" />
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 text-left ml-9">
+                Fixo para otimizar sua experiência visual no app.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <Globe size={20} className="text-primary mr-3" />
+                <Label htmlFor="language-select" className="text-base">Idioma</Label>
+              </div>
+              <span className="text-sm text-muted-foreground">Português (Brasil)</span>
+            </div>
           </div>
           
           <Separator />
