@@ -18,7 +18,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
   // Exemplo: const activityData = await fetchActivityData(id);
   // E então usar activityData.description e activityData.pdfUrl
 
-  const activityTitle = "Módulo Incrível"; // Placeholder - pode ser dinâmico
+  const activityTitle = "Módulo Incrível"; // Placeholder - pode ser dinâmico, mas não está sendo usado no título principal atualmente
   const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder - pode ser dinâmico
   const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing"; // URL do PDF ATUALIZADA
 
@@ -29,8 +29,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           <div className="flex items-center justify-center mb-4">
             <FileText size={48} className="text-primary mr-3" />
             <CardTitle className="text-center text-3xl font-headline">
-              {/* Poderia ser dinâmico com base no ID, ex: activityData.title */}
-              Detalhes da Atividade: {activityTitle}
+              100 ATIVIDADES CRIATIVAS
             </CardTitle>
           </div>
         </CardHeader>
