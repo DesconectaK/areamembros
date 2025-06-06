@@ -38,13 +38,13 @@ export default function HomePage() {
         <p className="text-md md:text-lg text-muted-foreground mt-2">Acesse o conteúdo abaixo e veja a magia acontecer.</p>
       </div>
 
-      <div className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-4 scroll-smooth snap-x snap-mandatory 
+      <div className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-4 scroll-smooth snap-x snap-mandatory
                       animate-in fade-in slide-in-from-bottom-5 duration-700">
         {modules.map((module) => (
           <Link href={`/modules/${module.id}`} key={module.id} className="flex-shrink-0 snap-center group" aria-label={`Acessar ${module.title}`}>
-            <Card 
-              className="w-[220px] min-w-[220px] sm:w-[240px] sm:min-w-[240px] md:w-[260px] md:min-w-[260px] 
-                         shadow-xl rounded-lg bg-card border-border/50 
+            <Card
+              className="w-[220px] min-w-[220px] sm:w-[240px] sm:min-w-[240px] md:w-[260px] md:min-w-[260px]
+                         shadow-xl rounded-lg bg-card border-border/50
                          flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl cursor-pointer"
             >
               <CardHeader className="p-4">
@@ -57,8 +57,8 @@ export default function HomePage() {
                   <Image
                     src={module.imageUrl}
                     alt={`Capa do ${module.title}`}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     data-ai-hint={module.imageHint}
                     className="transition-transform duration-300 ease-in-out group-hover:scale-105"
                   />
