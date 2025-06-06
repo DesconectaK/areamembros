@@ -18,9 +18,8 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
   // Exemplo: const activityData = await fetchActivityData(id);
   // E então usar activityData.description e activityData.pdfUrl
 
-  const activityTitle = "Módulo Incrível"; // Placeholder - pode ser dinâmico, mas não está sendo usado no título principal atualmente
-  const activityDescription = "Esta é uma breve descrição do conteúdo fantástico que você encontrará neste módulo. Prepare-se para aprender e se inspirar!"; // Placeholder - pode ser dinâmico
-  const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing"; // URL do PDF ATUALIZADA
+  const activityDescription = "Descubra 100 atividades criativas que estimulam a imaginação e o aprendizado. Perfeitas para todas as idades, essas atividades oferecem diversão e desenvolvimento de habilidades de forma interativa e inspiradora.";
+  const pdfUrl = "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing";
 
   return (
     <div className="container mx-auto p-4 flex flex-col items-center min-h-full pt-8">
@@ -39,7 +38,6 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           </p>
           
           <p className="text-md text-foreground mt-4 mb-6 px-4">
-            {/* Poderia ser dinâmico, ex: activityData.description */}
             {activityDescription}
           </p>
 
@@ -66,7 +64,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
               alt={`Placeholder para atividade ${id}`}
               width={600}
               height={400}
-              data-ai-hint="module content placeholder"
+              data-ai-hint="module content creative"
               className="rounded-lg shadow-md object-cover"
             />
           </div>
