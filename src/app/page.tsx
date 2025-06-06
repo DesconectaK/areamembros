@@ -7,14 +7,14 @@ const activities = [
   {
     id: "activity-1",
     title: "100 ATIVIDADES CRIATIVAS",
-    imageUrl: "/images/capamodulo1.png", // Atualizado aqui
+    imageUrl: "/images/capamodulo1.png",
     imageHint: "activity book cover",
     unoptimized: false,
   },
   {
     id: "activity-2",
     title: "50 BRINCADEIRAS CRIATIVAS",
-    imageUrl: "/images/imagem-capa-modulo1.png",
+    imageUrl: "/images/capamodulo2.png", // Atualizado aqui
     imageHint: "children playing games",
     unoptimized: false,
   },
