@@ -19,8 +19,6 @@ const activities = [
   {
     id: "activity-3",
     title: "50 MODELOS PARA COLORIR",
-    imageUrl: "/images/capamodelos.png",
-    imageHint: "modelos colorir",
   },
   {
     id: "activity-4",
