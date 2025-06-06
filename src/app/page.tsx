@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const modules = [
   {
-    id: "1", // Changed to string to match typical URL parameter usage
+    id: "1",
     title: "Módulo 1: 100 ATIVIDADES",
     imageUrl: "https://placehold.co/300x400.png",
     imageHint: "kids activities",
@@ -58,9 +58,8 @@ export default function HomePage() {
                     src={module.imageUrl}
                     alt={`Capa do ${module.title}`}
                     fill
-                    style={{ objectFit: 'cover' }}
                     data-ai-hint={module.imageHint}
-                    className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                   />
                 </div>
               </CardContent>
