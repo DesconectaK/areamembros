@@ -33,7 +33,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <h2 className="text-center text-xl font-headline font-bold text-primary mt-4 mb-3">
+          <h2 className="text-center text-xl font-headline font-bold text-primary mt-2 mb-8">
             Quer transformar o aprendizado dos seus filhos?
           </h2>
           <p className="text-md text-foreground mb-6 px-4">
