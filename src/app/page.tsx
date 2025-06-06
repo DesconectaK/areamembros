@@ -31,9 +31,9 @@ const activities = [
   },
   {
     id: "activity-5",
-    title: "Culinária: Cookies Coloridos",
+    title: "KIT TDAH/TEA",
     imageUrl: "https://placehold.co/200x300.png",
-    imageHint: "kids baking cookies",
+    imageHint: "therapy activities",
   },
   {
     id: "activity-6",

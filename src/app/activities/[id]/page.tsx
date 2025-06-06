@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, AlertTriangle } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 type ActivityDetailPageProps = {
   params: {
@@ -42,6 +41,12 @@ const activitiesData: Record<string, ActivityContent> = {
     subheadline: "Que tal explorar o mundo da música?",
     description: "Descubra atividades musicais que despertam o ritmo e a melodia. Perfeitas para todas as idades, essas atividades são uma maneira divertida de desenvolver habilidades musicais enquanto se aprende e se diverte.",
     pdfUrl: "https://drive.google.com/file/d/1lL7Atmnpa3yRwm0c9OeDyw0DdObx-sN3/view?usp=sharing",
+  },
+  "activity-5": {
+    title: "KIT TDAH/TEA",
+    subheadline: "Pronto para apoiar o desenvolvimento de seu filho?",
+    description: "Explore atividades e recursos projetados para ajudar no desenvolvimento de crianças com Transtorno do Déficit de Atenção e Hiperatividade (TDAH) ou Transtorno do Espectro Autista (TEA). Essas atividades são pensadas para promover habilidades sociais, emocionais e cognitivas de forma divertida e interativa.",
+    pdfUrl: "https://drive.google.com/file/d/1EbC-8llH8zyOLFWc6jlNbvtYqejdDnKi/view?usp=sharing",
   },
 };
 
