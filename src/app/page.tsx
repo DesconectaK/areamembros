@@ -110,6 +110,9 @@ export default function HomePage() {
         <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
           Bem-vinda(o) ao Desconecta!
         </h1>
+        <p className="text-lg md:text-xl text-muted-foreground mt-2">
+          Acesse as atividades e veja a magia acontecer.
+        </p>
       </div>
 
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
