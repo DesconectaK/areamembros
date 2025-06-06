@@ -60,7 +60,7 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           </p>
           <div className="mt-6 flex justify-center">
             <Image
-              src={`https://placehold.co/600x400.png`}
+              src="/images/imagem-capa-modulo1.png"
               alt="Prévia de 100 Atividades Criativas"
               width={600}
               height={400}
