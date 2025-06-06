@@ -14,29 +14,33 @@ export default function SettingsPage() {
   const { toast } = useToast();
 
   const handleLogout = () => {
-    // Clear auth cookie
     document.cookie = "auth_token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     toast({
       title: "Logout realizado",
       description: "Você foi desconectado com sucesso.",
     });
     router.push("/login");
-    router.refresh(); // Garante que o middleware reavalie
+    router.refresh();
   };
 
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center justify-center min-h-full">
+    <div className="container mx-auto p-4 flex flex-col items-center justify-center min-h-full pt-8">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader>
-          <div className="flex justify-center mb-4">
-            <SettingsIcon size={48} className="text-primary" />
+          <div className="flex items-center justify-center mb-1">
+            <SettingsIcon size={48} className="text-primary mr-3" />
+            <CardTitle className="text-center text-2xl font-headline">Ajustes</CardTitle>
           </div>
-          <CardTitle className="text-center text-2xl font-headline">Ajustes</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <p className="text-center text-muted-foreground">
-            Configure as preferências da sua aplicação.
-          </p>
+        <CardContent className="space-y-6"> {/* text-center removed from here to not affect form items alignment */}
+          <div className="text-center"> {/* Added a wrapper for text-center on subtitle and description */}
+            <h2 className="text-center text-xl font-headline font-bold text-primary mt-2 mb-8">
+              Personalize suas preferências
+            </h2>
+            <p className="text-md text-foreground mb-6 px-4">
+              Configure as preferências da sua aplicação.
+            </p>
+          </div>
           <div className="flex items-center justify-between">
             <Label htmlFor="notifications-switch" className="text-base">Notificações Push</Label>
             <Switch id="notifications-switch" aria-label="Toggle push notifications" />
