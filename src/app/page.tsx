@@ -19,8 +19,7 @@ const activities = [
   {
     id: "activity-3",
     title: "50 MODELOS PARA COLORIR",
-    imageUrl: "/images/capamodelos.png",
-    imageHint: "modelos colorir",
+    // imageUrl e imageHint removidos para capamodelos.png
   },
   {
     id: "activity-4",
@@ -77,19 +76,20 @@ export default function HomePage() {
                              h-[255px] sm:h-[270px] md:h-[300px]
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
-                             flex flex-col relative overflow-hidden"
+                             flex flex-col relative overflow-hidden" // Adicionado relative e overflow-hidden
                 >
                   {activity.imageUrl ? (
                     <Image
                       src={activity.imageUrl}
-                      alt={`Capa da atividade: ${activity.title}`}
+                      alt={`Capa da atividade: ${activity.title}`} // Título usado como alt
                       fill
                       sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
-                      className="object-contain transition-transform duration-300"
+                      className="object-contain transition-transform duration-300" // object-contain para não cortar
                       data-ai-hint={activity.imageHint || "atividade infantil"}
                       unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
                     />
                   ) : (
+                    // Layout para cards sem imagem (apenas título)
                     <div className="flex-grow flex flex-col items-center justify-center p-4 text-center">
                       <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
                         {activity.title}
