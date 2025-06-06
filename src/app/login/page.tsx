@@ -1,0 +1,154 @@
+
+"use client";
+
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Mail, Lock, LogIn } from "lucide-react";
+
+const loginFormSchema = z.object({
+  email: z.string().min(1, { message: "Email é obrigatório." }),
+  password: z.string().min(1, { message: "Senha é obrigatória." }),
+});
+
+type LoginFormValues = z.infer<typeof loginFormSchema>;
+
+const FIXED_EMAIL = "leandrodesconecta";
+const FIXED_PASSWORD = "desconecta@";
+
+export default function LoginPage() {
+  const router = useRouter();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const form = useForm<LoginFormValues>({
+    resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  async function onSubmit(data: LoginFormValues) {
+    setIsLoading(true);
+    // Simula uma chamada de API
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
+      toast({
+        title: "Login bem-sucedido!",
+        description: "Redirecionando...",
+      });
+      // Set auth cookie
+      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
+      router.push("/");
+      router.refresh(); // Garante que o middleware reavalie
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Erro no Login",
+        description: "Email ou senha inválidos.",
+      });
+      form.setError("email", { type: "manual", message: " " }); // Clear specific errors if desired, or just show toast
+      form.setError("password", { type: "manual", message: "Credenciais inválidas" });
+    }
+    setIsLoading(false);
+  }
+
+  return (
+    <div className="bg-black min-h-screen flex flex-col items-center justify-center p-4">
+      <Card className="w-full max-w-md shadow-2xl bg-card">
+        <CardHeader className="text-center">
+          <div className="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <CardTitle className="text-3xl font-headline text-primary">Bem-vindo de Volta</CardTitle>
+          <CardDescription className="text-muted-foreground pt-1">
+            Faça login para continuar na plataforma.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground/90">Email</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input 
+                          type="text"
+                          placeholder="seuemaildesconecta" 
+                          className="pl-10 rounded-lg" 
+                          {...field} 
+                          aria-label="Email"
+                        />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground/90">Senha</FormLabel>
+                    <FormControl>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input 
+                          type="password" 
+                          placeholder="********" 
+                          className="pl-10 rounded-lg" 
+                          {...field} 
+                          aria-label="Senha"
+                        />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button 
+                type="submit" 
+                className="w-full rounded-lg text-lg py-6 bg-primary hover:bg-primary/90" 
+                disabled={isLoading}
+                aria-label="Entrar"
+              >
+                {isLoading ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-foreground"></div>
+                ) : (
+                  <>
+                    <LogIn className="mr-2 h-5 w-5" /> Entrar
+                  </>
+                )}
+              </Button>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
+       <p className="text-center text-xs text-muted-foreground mt-8">
+        Email: leandrodesconecta | Senha: desconecta@
+      </p>
+    </div>
+  );
+}
