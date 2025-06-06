@@ -7,7 +7,7 @@ const activities = [
   {
     id: "activity-1",
     title: "100 ATIVIDADES CRIATIVAS",
-    imageUrl: "/images/imagem-capa-modulo1.png",
+    imageUrl: "/images/capamodulo1.png", // Atualizado aqui
     imageHint: "activity book cover",
     unoptimized: false,
   },
