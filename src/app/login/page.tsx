@@ -28,13 +28,13 @@ const loginFormSchema = z.object({
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
 const FIXED_EMAIL = "desconectakids@gmail.com";
-const FIXED_PASSWORD = "desconeta@"; // Corrigido aqui
+const FIXED_PASSWORD = "desconecta@";
 
 export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
-  const [isPasswordVisible, setIsPasswordVisible] = React.useState(true); // Senha começa visível
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(true); 
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
@@ -57,7 +57,7 @@ export default function LoginPage() {
         "path=/",
         `max-age=${60 * 60 * 24 * 7}`, // 7 dias
         "SameSite=Lax",
-        "Secure"
+        "Secure" 
       ];
       document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
       
