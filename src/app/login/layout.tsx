@@ -11,16 +11,9 @@ export default function LoginLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-BR" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased bg-black text-foreground">
-        {children}
-      </body>
-    </html>
-  );
+  // O layout raiz (src/app/layout.tsx) já define as tags <html>, <head> e <body>.
+  // Layouts aninhados não devem renderizá-las novamente.
+  // A estilização específica da página de login (fundo preto, etc.) é aplicada
+  // dentro do componente da página em src/app/login/page.tsx.
+  return <>{children}</>;
 }
