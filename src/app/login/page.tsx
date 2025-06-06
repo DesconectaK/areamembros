@@ -77,7 +77,7 @@ export default function LoginPage() {
           <div className="flex justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
-          <CardTitle className="text-3xl font-headline text-primary">Acesso Liberado!</CardTitle>
+          <CardTitle className="text-3xl font-headline text-primary">Pagamento Aprovado!</CardTitle>
           <CardDescription className="text-muted-foreground pt-1">
             Oba! Que bom te ver por aqui! Seu acesso exclusivo do Método Desconecta foi gerado automaticamente.
           </CardDescription>
