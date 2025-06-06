@@ -46,19 +46,24 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
-    // Removido: await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
-        description: "Acessando a plataforma...", // Mensagem mais curta
+        description: "Acessando a plataforma...",
       });
-      document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
+
+      const cookieOptions = [
+        "path=/",
+        `max-age=${60 * 60 * 24 * 7}`, // 7 dias
+        "SameSite=Lax",
+        "Secure" // Assumindo que a aplicação será servida por HTTPS em produção
+      ];
+      document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
+      
       router.push("/");
       router.refresh(); 
     } else {
-      // Esta parte não deve ser alcançada se os campos forem readOnly
-      // e os valores fixos estiverem corretos.
       toast({
         variant: "destructive",
         title: "Erro no Login",
@@ -66,11 +71,7 @@ export default function LoginPage() {
       });
       form.setError("email", { type: "manual", message: " " });
       form.setError("password", { type: "manual", message: "Credenciais inválidas" });
-    }
-    // setIsLoading(false) será chamado implicitamente após o redirecionamento ou erro
-    // Para garantir que o estado de loading seja desativado em caso de erro (improvável aqui):
-    if (data.email !== FIXED_EMAIL || data.password !== FIXED_PASSWORD) {
-        setIsLoading(false);
+      setIsLoading(false); 
     }
   }
 
