@@ -1,19 +1,6 @@
 
 import type {NextConfig} from 'next';
 
-const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    img-src 'self' data: https://placehold.co https://drive.google.com;
-    font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com;
-    connect-src 'self' ws:;
-    frame-ancestors 'self';
-    form-action 'self';
-    base-uri 'self';
-    object-src 'none';
-`.replace(/\s{2,}/g, ' ').trim();
-
 const securityHeaders = [
   {
     key: 'X-Content-Type-Options',
@@ -27,10 +14,8 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
-  {
-    key: 'Content-Security-Policy',
-    value: cspHeader,
-  }
+  // Content-Security-Policy foi removido temporariamente para corrigir problemas de carregamento.
+  // Se necessário, pode ser reintroduzido com uma política cuidadosamente testada.
 ];
 
 const nextConfig: NextConfig = {
