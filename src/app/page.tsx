@@ -19,7 +19,8 @@ const activities = [
   {
     id: "activity-3",
     title: "50 MODELOS PARA COLORIR",
-    // imageUrl e imageHint removidos para capamodelos.png
+    imageUrl: "/images/capacolorir.png",
+    imageHint: "modelos colorir",
   },
   {
     id: "activity-4",
@@ -30,7 +31,8 @@ const activities = [
   {
     id: "activity-5",
     title: "KIT TDAH/TEA",
-    // imageUrl e imageHint removidos para capatea.png
+    imageUrl: "/images/capaautismo.png",
+    imageHint: "kit autismo",
   },
 ];
 
@@ -78,15 +80,17 @@ export default function HomePage() {
                              flex flex-col relative overflow-hidden"
                 >
                   {activity.imageUrl ? (
-                    <Image
-                      src={activity.imageUrl}
-                      alt={`Capa da atividade: ${activity.title}`}
-                      fill
-                      sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
-                      className="object-contain transition-transform duration-300"
-                      data-ai-hint={activity.imageHint || "atividade infantil"}
-                      unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
-                    />
+                     <div className="relative w-full h-full">
+                      <Image
+                        src={activity.imageUrl}
+                        alt={`Capa da atividade: ${activity.title}`}
+                        fill
+                        sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
+                        className="object-contain transition-transform duration-300"
+                        data-ai-hint={activity.imageHint || "atividade infantil"}
+                        unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
+                      />
+                    </div>
                   ) : (
                     <div className="flex-grow flex flex-col items-center justify-center p-4 text-center">
                       <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
