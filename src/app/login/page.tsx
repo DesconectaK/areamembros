@@ -46,14 +46,12 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Removido: await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Mesmo com a autenticação "inativa", simulamos o processo
-    // para manter a experiência do usuário e definir o cookie.
     if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
-        description: "Redirecionando para a plataforma...",
+        description: "Acessando a plataforma...", // Mensagem mais curta
       });
       document.cookie = "auth_token=true;path=/;max-age=" + (60 * 60 * 24 * 7); // 7 dias
       router.push("/");
@@ -69,7 +67,11 @@ export default function LoginPage() {
       form.setError("email", { type: "manual", message: " " });
       form.setError("password", { type: "manual", message: "Credenciais inválidas" });
     }
-    setIsLoading(false);
+    // setIsLoading(false) será chamado implicitamente após o redirecionamento ou erro
+    // Para garantir que o estado de loading seja desativado em caso de erro (improvável aqui):
+    if (data.email !== FIXED_EMAIL || data.password !== FIXED_PASSWORD) {
+        setIsLoading(false);
+    }
   }
 
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
@@ -106,7 +108,7 @@ export default function LoginPage() {
                           placeholder="Seu email gerado" 
                           className="pl-10 rounded-lg" 
                           {...field} 
-                          readOnly // Torna o campo somente leitura
+                          readOnly 
                           aria-label="Email"
                         />
                       </div>
@@ -129,7 +131,7 @@ export default function LoginPage() {
                           placeholder="Sua senha gerada"
                           className="pl-10 pr-10 rounded-lg"
                           {...field} 
-                          readOnly // Torna o campo somente leitura
+                          readOnly 
                           aria-label="Senha"
                         />
                         <button
