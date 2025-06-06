@@ -79,7 +79,7 @@ export default function LoginPage() {
           </div>
           <CardTitle className="text-3xl font-headline text-primary">Pagamento Aprovado!</CardTitle>
           <CardDescription className="text-muted-foreground pt-1">
-            Oba! Que bom te ver por aqui! Seu acesso exclusivo do Método Desconecta foi gerado automaticamente.
+            Agradecemos pela confiança! Seu acesso exclusivo do Método Desconecta foi gerado automaticamente.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -161,3 +161,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
