@@ -76,12 +76,15 @@ export default function LoginPage() {
           <div className="flex justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
-          <CardTitle className="text-3xl font-headline text-primary">Bem-vindo de Volta</CardTitle>
+          <CardTitle className="text-3xl font-headline text-primary">Acesso Liberado!</CardTitle>
           <CardDescription className="text-muted-foreground pt-1">
-            Faça login para continuar na plataforma.
+            Seu acesso exclusivo foi gerado automaticamente.
           </CardDescription>
         </CardHeader>
         <CardContent>
+          <p className="text-sm text-center text-muted-foreground mb-6 px-4">
+            Utilize as credenciais abaixo, preparadas especialmente para você, para entrar na plataforma:
+          </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -89,7 +92,7 @@ export default function LoginPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground/90">Email</FormLabel>
+                    <FormLabel className="text-foreground/90">Email de Acesso</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -111,7 +114,7 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground/90">Senha</FormLabel>
+                    <FormLabel className="text-foreground/90">Senha de Acesso</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
