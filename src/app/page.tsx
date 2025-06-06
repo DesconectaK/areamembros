@@ -8,12 +8,7 @@ const activities = [
   {
     id: "activity-1",
     title: "Pintura Criativa com Guache", // Título ainda existe nos dados, mas não será exibido no card por agora
-    // Para usar sua imagem personalizada:
-    // 1. Baixe a imagem do Google Drive.
-    // 2. Crie a pasta 'public/images/' no seu projeto.
-    // 3. Coloque a imagem lá (ex: 'public/images/capa-modulo-1.png').
-    // 4. Altere o imageUrl abaixo para: '/images/capa-modulo-1.png'
-    imageUrl: "https://placehold.co/200x300.png", // Revertido para placeholder
+    imageUrl: "/images/image-capa-modulo1.png",
     imageHint: "activity book cover",
   },
   {
