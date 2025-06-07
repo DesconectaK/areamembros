@@ -40,13 +40,13 @@ export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
       <div
-        className="relative w-full aspect-[4/1] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
+        className="relative w-full aspect-[5/1] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
         aria-label="Espaço para banner promocional"
         data-ai-hint="banner promocional"
       >
         <p className="text-sm md:text-lg text-center px-4">
           Espaço para o Banner<br />
-          (Proporção 4:1, e.g., 1200x300px)
+          (Proporção 5:1, e.g., 1200x240px)
         </p>
       </div>
 
