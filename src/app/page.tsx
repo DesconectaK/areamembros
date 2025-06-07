@@ -70,7 +70,7 @@ export default function HomePage() {
         
         <div className="relative">
           <div
-            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 scroll-smooth snap-x snap-mandatory
+            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 scroll-smooth snap-x snap-mandatory snap-center
                        [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-nowrap px-1"
           >
             {activities.map((activity) => (
