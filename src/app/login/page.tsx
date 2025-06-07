@@ -18,16 +18,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { User, Lock, LogIn, Eye, EyeOff } from "lucide-react"; // Alterado Mail para User
+import { User, Lock, LogIn, Eye, EyeOff } from "lucide-react";
 
 const loginFormSchema = z.object({
-  username: z.string().min(1, { message: "Usuário é obrigatório." }), // Alterado de email para username
+  username: z.string().min(1, { message: "Usuário é obrigatório." }),
   password: z.string().min(1, { message: "Senha é obrigatória." }),
 });
 
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
-const FIXED_USERNAME = "metododesconecta"; // Alterado de FIXED_EMAIL
+const FIXED_USERNAME = "metododesconecta";
 const FIXED_PASSWORD = "premium@";
 
 export default function LoginPage() {
@@ -39,7 +39,7 @@ export default function LoginPage() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      username: FIXED_USERNAME, // Alterado de email
+      username: FIXED_USERNAME,
       password: FIXED_PASSWORD,
     },
   });
@@ -47,7 +47,7 @@ export default function LoginPage() {
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
 
-    if (data.username === FIXED_USERNAME && data.password === FIXED_PASSWORD) { // Alterado de data.email
+    if (data.username === FIXED_USERNAME && data.password === FIXED_PASSWORD) {
       toast({
         title: "Login bem-sucedido!",
         description: "Acessando a plataforma...",
@@ -64,12 +64,8 @@ export default function LoginPage() {
       }
       document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
       
-      // Atraso para garantir que o cookie seja definido antes do redirecionamento e refresh
-      // Isso é uma solução alternativa para prototipagem; em produção, o middleware deve lidar com isso de forma mais robusta.
-      setTimeout(() => {
-        router.push("/");
-        router.refresh();
-      }, 100);
+      router.push("/");
+      router.refresh();
 
     } else {
       toast({
@@ -77,7 +73,7 @@ export default function LoginPage() {
         title: "Erro no Login",
         description: "Usuário ou senha inválidos.",
       });
-      form.setError("username", { type: "manual", message: " " }); // Alterado de email
+      form.setError("username", { type: "manual", message: " " });
       form.setError("password", { type: "manual", message: "Credenciais inválidas" });
       setIsLoading(false); 
     }
@@ -105,20 +101,20 @@ export default function LoginPage() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
-                name="username" // Alterado de email
+                name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground/90">Usuário de Acesso</FormLabel> {/* Alterado texto */}
+                    <FormLabel className="text-foreground/90">Usuário de Acesso</FormLabel>
                     <FormControl>
                       <div className="relative">
-                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" /> {/* Alterado Ícone */}
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                         <Input 
                           type="text"
                           placeholder="Seu usuário gerado" 
                           className="pl-10 rounded-lg" 
                           {...field} 
                           readOnly 
-                          aria-label="Usuário" // Alterado aria-label
+                          aria-label="Usuário"
                         />
                       </div>
                     </FormControl>
