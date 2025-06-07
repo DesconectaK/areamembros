@@ -38,7 +38,7 @@ const activities = [
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 space-y-8">
+    <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8 space-y-8">
       <section 
         aria-label="Seção de boas-vindas com logo e descrição"
         className="flex flex-col md:flex-row items-center gap-6 md:gap-8 p-4 md:p-6 bg-black rounded-lg shadow-md border border-border/50 animate-in fade-in duration-500"
@@ -81,8 +81,8 @@ export default function HomePage() {
                 aria-label={`Acessar atividade: ${activity.title}`}
               >
                 <Card
-                  className="w-[140px] min-w-[140px] sm:w-[160px] sm:min-w-[160px] md:w-[180px] md:min-w-[180px]
-                             h-[250px] sm:h-[280px] md:h-[310px]
+                  className="w-[160px] min-w-[160px] sm:w-[190px] sm:min-w-[190px] md:w-[220px] md:min-w-[220px]
+                             h-[270px] sm:h-[315px] md:h-[360px]
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
                              flex flex-col relative overflow-hidden"
@@ -93,7 +93,7 @@ export default function HomePage() {
                         src={activity.imageUrl}
                         alt={`Capa da atividade: ${activity.title}`}
                         fill
-                        sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, 180px"
+                        sizes="(max-width: 640px) 160px, (max-width: 768px) 190px, 220px"
                         className="object-cover transition-transform duration-300"
                         data-ai-hint={activity.imageHint || "atividade infantil"}
                         unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
