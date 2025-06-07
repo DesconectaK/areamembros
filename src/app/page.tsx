@@ -67,8 +67,8 @@ export default function HomePage() {
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
         <div className="relative">
           <div
-            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory
-                       [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex overflow-x-auto space-x-4 md:space-x-6 pb-4 pt-2 scroll-smooth snap-x snap-mandatory
+                       [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] flex-nowrap"
           >
             {activities.map((activity) => (
               <Link
@@ -78,8 +78,8 @@ export default function HomePage() {
                 aria-label={`Acessar atividade: ${activity.title}`}
               >
                 <Card
-                  className="w-[170px] min-w-[170px] sm:w-[180px] sm:min-w-[180px] md:w-[200px] md:min-w-[200px]
-                             h-[255px] sm:h-[270px] md:h-[300px]
+                  className="w-[140px] min-w-[140px] sm:w-[160px] sm:min-w-[160px] md:w-[180px] md:min-w-[180px]
+                             h-[210px] sm:h-[240px] md:h-[270px]
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
                              flex flex-col relative overflow-hidden"
@@ -90,7 +90,7 @@ export default function HomePage() {
                         src={activity.imageUrl}
                         alt={`Capa da atividade: ${activity.title}`}
                         fill
-                        sizes="(max-width: 640px) 170px, (max-width: 768px) 180px, 200px"
+                        sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, 180px"
                         className="object-contain transition-transform duration-300"
                         data-ai-hint={activity.imageHint || "atividade infantil"}
                         unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
