@@ -19,7 +19,7 @@ const upsellProducts = [
   },
   {
     id: "upsell-2",
-    title: "CALENDÁRIO DE ATIVIDADES/METAS",
+    title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
