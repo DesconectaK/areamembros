@@ -11,8 +11,8 @@ const upsellProducts = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
-    posterUrl: "/images/upguia.png", 
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Atualizado para YouTube embed
+    posterUrl: "/images/upguia.png", // Poster pode não ser usado diretamente pelo iframe
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -51,17 +51,29 @@ export default function ExplorePage() {
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                   <div className="w-full md:w-[180px] lg:w-[200px] flex-shrink-0">
-                    <video
-                      src={product.videoUrl}
-                      poster={product.posterUrl}
-                      controls
-                      width={200}
-                      height={200}
-                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted" 
-                      aria-label={`Vídeo de apresentação para ${product.title}`}
-                    >
-                      Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
-                    </video>
+                    {product.videoUrl.includes("youtube.com/embed") ? (
+                      <div className="aspect-video w-full">
+                        <iframe
+                          src={product.videoUrl}
+                          title={`Vídeo de apresentação para ${product.title}`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                          className="rounded-lg w-full h-full border border-border/30 shadow-sm bg-muted"
+                        ></iframe>
+                      </div>
+                    ) : (
+                      <video
+                        src={product.videoUrl}
+                        poster={product.posterUrl}
+                        controls
+                        className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted"
+                        aria-label={`Vídeo de apresentação para ${product.title}`}
+                      >
+                        Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
+                      </video>
+                    )}
                   </div>
                   <div className="flex-grow space-y-2 md:space-y-3 w-full">
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
