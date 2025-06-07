@@ -42,14 +42,13 @@ export default function HomePage() {
       <div
         className="relative w-full aspect-[16/9] bg-muted rounded-lg border border-border/50 shadow-md overflow-hidden animate-in fade-in duration-500"
         aria-label="Banner Promocional"
-        data-ai-hint="banner familia"
       >
         <Image
-          src="https://placehold.co/1200x675.png" 
+          src="/images/banner-principal.png" 
           alt="Banner Promocional Principal"
-          layout="fill"
-          objectFit="cover"
-          unoptimized 
+          fill
+          sizes="(max-width: 768px) 100vw, 1200px"
+          className="object-cover"
         />
       </div>
 
