@@ -59,7 +59,7 @@ export default function HomePage() {
             Bem-vindo(a) ao Método Desconecta!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
-            Um mundo onde vivemos sem as telas! Acesse as atividades e veja a magia acontecer.
+            Um mundo melhor, onde vivemos sem as telas. Atividades de estimulam o desenvolvimento sem distrações digitais. Acesse as atividades e dê para seu filho o futuro que ele merece!
           </p>
         </div>
       </section>
