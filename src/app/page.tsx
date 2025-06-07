@@ -41,15 +41,15 @@ export default function HomePage() {
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
       <div
         className="relative w-full aspect-[3/1] bg-muted rounded-lg border border-border/50 shadow-md overflow-hidden animate-in fade-in duration-500"
-        aria-label="Banner Promocional"
+        aria-label="Logo Método Desconecta"
       >
         <Image
-          src="/banners/bannerp.png"
-          alt="Banner promocional principal"
+          src="/images/logo-metodo-desconecta-512.png"
+          alt="Logo Método Desconecta"
           fill
-          sizes="(max-width: 768px) 100vw, 1200px"
-          className="object-cover"
-          data-ai-hint="banner principal"
+          sizes="(max-width: 1200px) 33vw, 400px"
+          className="object-contain"
+          data-ai-hint="logo desconecta"
           priority
         />
       </div>
