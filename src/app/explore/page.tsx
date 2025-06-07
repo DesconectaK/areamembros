@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, ShoppingCart } from "lucide-react";
+import { Compass } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -11,8 +11,8 @@ const upsellProducts = [
     title: "GUIA COMPLETO PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // SUBSTITUA PELA URL REAL DO SEU VÍDEO
-    posterUrl: "/images/upguia.png", // Imagem exibida antes do vídeo carregar
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
+    posterUrl: "/images/upguia.png", 
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -22,8 +22,8 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES/METAS",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // SUBSTITUA PELA URL REAL DO SEU VÍDEO
-    posterUrl: "/images/upcalendari.png", // Imagem exibida antes do vídeo carregar
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
+    posterUrl: "/images/upcalendari.png", 
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17"
@@ -57,7 +57,7 @@ export default function ExplorePage() {
                       controls
                       width={200}
                       height={200}
-                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted" // Adicionado bg-muted para preencher caso o poster demore
+                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted" 
                       aria-label={`Vídeo de apresentação para ${product.title}`}
                     >
                       Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
@@ -82,19 +82,16 @@ export default function ExplorePage() {
                       )}
                       {product.comingSoon ? (
                         <Button disabled={true} size="sm" className="w-full sm:w-auto">
-                          <ShoppingCart className="mr-2 h-4 w-4" />
                           Em Breve
                         </Button>
                       ) : product.checkoutUrl ? (
                         <Link href={product.checkoutUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                           <Button size="sm" className="w-full">
-                            <ShoppingCart className="mr-2 h-4 w-4" />
                             {product.ctaText}
                           </Button>
                         </Link>
                       ) : (
                         <Button disabled={true} size="sm" className="w-full sm:w-auto">
-                           <ShoppingCart className="mr-2 h-4 w-4" />
                            {product.ctaText}
                         </Button>
                       )}
