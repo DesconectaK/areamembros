@@ -7,12 +7,13 @@ import Image from "next/image";
 const upsellProducts = [
   {
     id: "upsell-1",
-    title: "GUIA PARA PAIS",
-    description: "Equilíbrio em casa é um desafio? Este guia é seu manual prático! Engaje as crianças, vença a resistência às telas e crie uma rotina familiar conectada e feliz. Um complemento essencial!",
-    price: "R$ 4,90",
+    title: "GUIA COMPLETO PARA PAIS",
+    description: "As telas estão tomando conta da rotina familiar? Este guia vai te dar o passo a passo para engajar seus filhos, criar uma rotina sem stress e reduzir as telas, trazendo mais qualidade e conexão para a sua família.",
+    price: "", // Price removed for this product
     imageUrl: "/images/upguia.png",
     imageHint: "guia pais",
     comingSoon: false,
+    ctaText: "EU QUERO!",
   },
   {
     id: "upsell-2",
@@ -22,6 +23,7 @@ const upsellProducts = [
     imageUrl: "/images/upcalendari.png",
     imageHint: "calendario personalizado",
     comingSoon: false,
+    // ctaText will default to "Saiba Mais"
   },
 ];
 
@@ -64,12 +66,14 @@ export default function ExplorePage() {
                       {product.description}
                     </p>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
-                      <p className="text-xl font-bold text-primary">
-                        {product.price}
-                      </p>
+                      {product.price && (
+                        <p className="text-xl font-bold text-primary">
+                          {product.price}
+                        </p>
+                      )}
                       <Button disabled={product.comingSoon} size="sm" className="w-full sm:w-auto">
                         <ShoppingCart className="mr-2 h-4 w-4" />
-                        {product.comingSoon ? "Em Breve" : "Saiba Mais"}
+                        {product.comingSoon ? "Em Breve" : (product.ctaText || "Saiba Mais")}
                       </Button>
                     </div>
                   </div>
