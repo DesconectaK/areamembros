@@ -40,17 +40,17 @@ export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
       <div
-        className="relative w-full aspect-[16/9] bg-muted rounded-lg border border-border/50 shadow-md overflow-hidden animate-in fade-in duration-500"
+        className="relative w-full aspect-[3/1] bg-muted rounded-lg border border-border/50 shadow-md overflow-hidden animate-in fade-in duration-500"
         aria-label="Banner Promocional"
       >
         <Image
           src="/images/banner-principal.png" 
-          alt="Banner com família sorrindo e criança segurando livros"
+          alt="Banner com família sorrindo e criança segurando livros, promovendo o Método Desconecta"
           fill
           sizes="(max-width: 768px) 100vw, 1200px"
           className="object-cover"
-          data-ai-hint="familia livros"
-          priority // Adicionar priority para o LCP (Largest Contentful Paint)
+          data-ai-hint="familia atividades desconecta"
+          priority
         />
       </div>
 
