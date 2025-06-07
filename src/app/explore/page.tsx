@@ -35,7 +35,7 @@ export default function ExplorePage() {
           <div className="flex items-center justify-center mb-2">
             <Compass size={40} className="text-primary mr-3" />
             <CardTitle className="text-center text-2xl md:text-3xl font-headline">
-              Achou que tinha acabado? Já são seus!
+              Acredite, você vai querer!
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
