@@ -16,12 +16,12 @@ const upsellProducts = [
   },
   {
     id: "upsell-2",
-    title: "Masterclass Online: Parentalidade Positiva e Resiliente",
-    description: "Aprofunde seus conhecimentos com técnicas avançadas para uma parentalidade transformadora. Módulos interativos, sessões com especialistas e uma comunidade exclusiva esperam por você.",
-    price: "R$ 127,00",
-    imageUrl: "https://placehold.co/300x300.png",
-    imageHint: "curso parentalidade masterclass",
-    comingSoon: true,
+    title: "CALENDARIO PERSONALIZADO",
+    description: "Está difícil manter o equilíbrio em casa? Este guia é o manual para implementar o Método Premium, com estratégias práticas para engajar as crianças, superar a resistência ao diminuir as telas e criar uma rotina mais saudável e conectada para sua família.",
+    price: "R$ 4,90",
+    imageUrl: "/images/upcalendario.png",
+    imageHint: "calendario personalizado",
+    comingSoon: false,
   },
 ];
 
