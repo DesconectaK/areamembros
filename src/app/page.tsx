@@ -81,10 +81,13 @@ export default function HomePage() {
                 aria-label={`Acessar atividade: ${activity.title}`}
               >
                 <Card
-                  className="w-[160px] min-w-[160px] sm:w-[190px] sm:min-w-[190px] md:w-[220px] md:min-w-[220px]
-                             h-[270px] sm:h-[315px] md:h-[360px]
+                  className="w-[200px] min-w-[200px] sm:w-[220px] sm:min-w-[220px] md:w-[240px] md:min-w-[240px]
+                             h-[300px] sm:h-[330px] md:h-[360px]
                              bg-card rounded-lg shadow-lg border-border/50
-                             transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
+                             transition-all duration-300 ease-in-out 
+                             group-hover:shadow-2xl group-hover:scale-105 group-hover:-translate-y-1
+                             group-focus-visible:scale-105 group-focus-visible:-translate-y-1 group-focus-visible:shadow-2xl
+                             cursor-pointer
                              flex flex-col relative overflow-hidden"
                 >
                   {activity.imageUrl ? (
@@ -93,7 +96,7 @@ export default function HomePage() {
                         src={activity.imageUrl}
                         alt={`Capa da atividade: ${activity.title}`}
                         fill
-                        sizes="(max-width: 640px) 160px, (max-width: 768px) 190px, 220px"
+                        sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 240px"
                         className="object-cover transition-transform duration-300"
                         data-ai-hint={activity.imageHint || "atividade infantil"}
                         unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
