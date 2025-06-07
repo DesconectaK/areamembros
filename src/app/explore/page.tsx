@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const upsellProducts = [
   {
     id: "upsell-1",
-    title: "GUIA COMPLETO PARA PAIS",
+    title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
