@@ -39,7 +39,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            Dicas valiosas que qualquer pai e mãe precisam ter, sem sombra de dúvidas!
+            Guia e calendário que qualquer pai e mãe PRECISAM ter, sem sombra de dúvidas!
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
