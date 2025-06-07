@@ -1,8 +1,12 @@
 
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass } from "lucide-react";
-import Link from "next/link";
+import { Compass, Play } from "lucide-react"; // Importado Play
 import { cn } from "@/lib/utils";
 
 const upsellProducts = [
@@ -11,8 +15,8 @@ const upsellProducts = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Atualizado para YouTube embed
-    posterUrl: "/images/upguia.png", // Poster pode não ser usado diretamente pelo iframe
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E",
+    posterUrl: "/images/upguia.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -22,8 +26,8 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
-    posterUrl: "/images/upcalendari.png", 
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17"
@@ -31,6 +35,12 @@ const upsellProducts = [
 ];
 
 export default function ExplorePage() {
+  const [showVideoPlayer, setShowVideoPlayer] = React.useState<Record<string, boolean>>({});
+
+  const handlePlayClick = (productId: string) => {
+    setShowVideoPlayer(prev => ({ ...prev, [productId]: true }));
+  };
+
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8 min-h-full">
       <Card className="w-full shadow-xl border-border/50">
@@ -50,19 +60,47 @@ export default function ExplorePage() {
             <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-                  <div className="w-full md:w-[180px] lg:w-[200px] flex-shrink-0">
+                  <div className="w-full md:w-[180px] lg:w-[200px] flex-shrink-0 relative">
                     {product.videoUrl.includes("youtube.com/embed") ? (
-                      <div className="aspect-video w-full">
-                        <iframe
-                          src={product.videoUrl}
-                          title={`Vídeo de apresentação para ${product.title}`}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          allowFullScreen
-                          className="rounded-lg w-full h-full border border-border/30 shadow-sm bg-muted"
-                        ></iframe>
-                      </div>
+                      <>
+                        {!showVideoPlayer[product.id] ? (
+                          <div 
+                            className="aspect-video w-full relative group cursor-pointer" 
+                            onClick={() => handlePlayClick(product.id)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handlePlayClick(product.id); }}
+                            aria-label={`Play video for ${product.title}`}
+                          >
+                            <Image
+                              src={product.posterUrl}
+                              alt={`Poster para ${product.title}`}
+                              fill
+                              sizes="(max-width: 768px) 180px, 200px"
+                              className="rounded-lg object-cover border border-border/30 shadow-sm bg-muted"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
+                              <div // Mudado de Button para div para evitar problemas de aninhamento e estilização mais fácil
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg flex items-center justify-center cursor-pointer"
+                              >
+                                <Play className="w-7 h-7 md:w-8 md:h-8 fill-primary-foreground" />
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="aspect-video w-full">
+                            <iframe
+                              src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0`} // mute=0 pode não funcionar sempre
+                              title={`Vídeo de apresentação para ${product.title}`}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                              className="rounded-lg w-full h-full border border-border/30 shadow-sm bg-muted"
+                            ></iframe>
+                          </div>
+                        )}
+                      </>
                     ) : (
                       <video
                         src={product.videoUrl}
