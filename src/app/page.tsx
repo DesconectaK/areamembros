@@ -40,14 +40,17 @@ export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
       <div
-        className="relative w-full aspect-[16/9] bg-muted rounded-lg border border-border/50 shadow-md flex items-center justify-center text-muted-foreground animate-in fade-in duration-500"
-        aria-label="Espaço para banner promocional"
-        data-ai-hint="banner promocional familia"
+        className="relative w-full aspect-[16/9] bg-muted rounded-lg border border-border/50 shadow-md overflow-hidden animate-in fade-in duration-500"
+        aria-label="Banner Promocional"
+        data-ai-hint="banner familia"
       >
-        <p className="text-sm md:text-lg text-center px-4">
-          Espaço para o Banner<br />
-          (Proporção 16:9, e.g., 1200x675px)
-        </p>
+        <Image
+          src="https://placehold.co/1200x675.png" 
+          alt="Banner Promocional Principal"
+          layout="fill"
+          objectFit="cover"
+          unoptimized 
+        />
       </div>
 
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
