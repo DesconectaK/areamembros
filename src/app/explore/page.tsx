@@ -2,8 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Compass, ShoppingCart } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link"; // Import Link
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const upsellProducts = [
@@ -12,8 +11,8 @@ const upsellProducts = [
     title: "GUIA COMPLETO PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    imageUrl: "/images/upguia.png",
-    imageHint: "guia pais",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // SUBSTITUA PELA URL REAL DO SEU VÍDEO
+    posterUrl: "/images/upguia.png", // Imagem exibida antes do vídeo carregar
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -23,8 +22,8 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES/METAS",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    imageUrl: "/images/upcalendari.png",
-    imageHint: "calendario metas",
+    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // SUBSTITUA PELA URL REAL DO SEU VÍDEO
+    posterUrl: "/images/upcalendari.png", // Imagem exibida antes do vídeo carregar
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17"
@@ -51,16 +50,18 @@ export default function ExplorePage() {
             <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-                  <div className="w-full md:w-[150px] lg:w-[180px] flex-shrink-0">
-                    <Image
-                      src={product.imageUrl}
-                      alt={`Preview do ${product.title}`}
-                      width={180}
-                      height={180}
-                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm"
-                      data-ai-hint={product.imageHint}
-                      unoptimized={product.imageUrl.startsWith('https://placehold.co')}
-                    />
+                  <div className="w-full md:w-[180px] lg:w-[200px] flex-shrink-0">
+                    <video
+                      src={product.videoUrl}
+                      poster={product.posterUrl}
+                      controls
+                      width={200}
+                      height={200}
+                      className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted" // Adicionado bg-muted para preencher caso o poster demore
+                      aria-label={`Vídeo de apresentação para ${product.title}`}
+                    >
+                      Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
+                    </video>
                   </div>
                   <div className="flex-grow space-y-2 md:space-y-3 w-full">
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -86,13 +87,12 @@ export default function ExplorePage() {
                         </Button>
                       ) : product.checkoutUrl ? (
                         <Link href={product.checkoutUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                          <Button size="sm" className="w-full"> {/* Button takes full width of Link container */}
+                          <Button size="sm" className="w-full">
                             <ShoppingCart className="mr-2 h-4 w-4" />
                             {product.ctaText}
                           </Button>
                         </Link>
                       ) : (
-                        // Fallback for non-comingSoon but no checkoutUrl
                         <Button disabled={true} size="sm" className="w-full sm:w-auto">
                            <ShoppingCart className="mr-2 h-4 w-4" />
                            {product.ctaText}
