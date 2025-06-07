@@ -7,12 +7,12 @@ import Image from "next/image";
 const upsellProducts = [
   {
     id: "upsell-1",
-    title: "Super Kit de Planejamento Semanal Avançado",
-    description: "Eleve sua organização a um novo patamar com nosso kit premium, incluindo planners estratégicos, adesivos motivacionais e guias de produtividade. Conquiste suas metas com maestria e criatividade!",
-    price: "R$ 69,90",
-    imageUrl: "https://placehold.co/300x300.png",
-    imageHint: "kit planejamento premium",
-    comingSoon: true,
+    title: "GUIA PARA PAIS",
+    description: "O caos da rotina e o tempo de tela te consomem? Este calendário vai te ajudar a organizar a semana da sua família, com atividades offline e metas claras que mantém todos motivados e em movimento. Mais foco, mais união, e menos distração!",
+    price: "R$ 4,90",
+    imageUrl: "/images/upguia.png",
+    imageHint: "guia pais",
+    comingSoon: false,
   },
   {
     id: "upsell-2",
