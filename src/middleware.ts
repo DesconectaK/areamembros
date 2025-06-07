@@ -3,25 +3,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const authToken = request.cookies.get('auth_token')?.value;
-  const { pathname } = request.nextUrl;
-
-  // A única rota pública é /login
-  const publicPaths = ['/login'];
-  const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
-
-  // Se o usuário está autenticado (tem o cookie) e tenta acessar a página de login,
-  // redireciona para a página principal.
-  if (authToken && isPublicPath) {
-    return NextResponse.redirect(new URL('/', request.url));
-  }
-
-  // Se o usuário NÃO está autenticado e tenta acessar uma página protegida (que não seja /login),
-  // redireciona para a página de login.
-  if (!authToken && !isPublicPath) {
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
-
+  // Middleware desativado: permite todas as requisições.
   return NextResponse.next();
 }
 
