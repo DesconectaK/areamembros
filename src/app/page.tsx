@@ -1,7 +1,7 @@
 
-import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import { Card } from "@/components/ui/card";
 
 const activities = [
   {
@@ -39,10 +39,13 @@ const activities = [
 export default function HomePage() {
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8">
-      <section className="flex flex-col md:flex-row items-center gap-6 md:gap-8 p-4 md:p-6 bg-card rounded-lg shadow-md border border-border/50 animate-in fade-in duration-500">
+      <section 
+        aria-label="Seção de boas-vindas com logo e descrição"
+        className="flex flex-col md:flex-row items-center gap-6 md:gap-8 p-4 md:p-6 bg-black rounded-lg shadow-md border border-border/50 animate-in fade-in duration-500"
+      >
         <div className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 relative flex-shrink-0">
           <Image
-            src="/images/logo-metodo-desconecta-512.png"
+            src="/images/logo.png"
             alt="Logo Método Desconecta"
             fill
             sizes="(max-width: 768px) 96px, (max-width: 1024px) 128px, 144px"
@@ -55,7 +58,7 @@ export default function HomePage() {
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2 font-headline">
             Bem-vindo(a) ao Método Desconecta!
           </h1>
-          <p className="text-base md:text-lg text-foreground/90">
+          <p className="text-base md:text-lg text-primary-foreground">
             Explore um universo de atividades criativas e recursos exclusivos para transformar o aprendizado e a diversão em família.
           </p>
         </div>
