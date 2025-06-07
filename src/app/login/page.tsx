@@ -18,17 +18,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Lock, LogIn, Eye, EyeOff } from "lucide-react";
+import { User, Lock, LogIn, Eye, EyeOff } from "lucide-react"; // Alterado Mail para User
 
 const loginFormSchema = z.object({
-  email: z.string().min(1, { message: "Email é obrigatório." }),
+  username: z.string().min(1, { message: "Usuário é obrigatório." }), // Alterado de email para username
   password: z.string().min(1, { message: "Senha é obrigatória." }),
 });
 
 type LoginFormValues = z.infer<typeof loginFormSchema>;
 
-const FIXED_EMAIL = "desconectakids@gmail.com";
-const FIXED_PASSWORD = "desconecta@";
+const FIXED_USERNAME = "metododesconecta"; // Alterado de FIXED_EMAIL
+const FIXED_PASSWORD = "premium@";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function LoginPage() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      email: FIXED_EMAIL,
+      username: FIXED_USERNAME, // Alterado de email
       password: FIXED_PASSWORD,
     },
   });
@@ -47,7 +47,7 @@ export default function LoginPage() {
   async function onSubmit(data: LoginFormValues) {
     setIsLoading(true);
 
-    if (data.email === FIXED_EMAIL && data.password === FIXED_PASSWORD) {
+    if (data.username === FIXED_USERNAME && data.password === FIXED_PASSWORD) { // Alterado de data.email
       toast({
         title: "Login bem-sucedido!",
         description: "Acessando a plataforma...",
@@ -57,19 +57,27 @@ export default function LoginPage() {
         "path=/",
         `max-age=${60 * 60 * 24 * 7}`, // 7 dias
         "SameSite=Lax",
-        "Secure" 
       ];
+      // Adiciona Secure apenas em produção (HTTPS)
+      if (process.env.NODE_ENV === 'production') {
+        cookieOptions.push("Secure");
+      }
       document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
       
-      router.push("/");
-      router.refresh(); 
+      // Atraso para garantir que o cookie seja definido antes do redirecionamento e refresh
+      // Isso é uma solução alternativa para prototipagem; em produção, o middleware deve lidar com isso de forma mais robusta.
+      setTimeout(() => {
+        router.push("/");
+        router.refresh();
+      }, 100);
+
     } else {
       toast({
         variant: "destructive",
         title: "Erro no Login",
-        description: "Email ou senha inválidos.",
+        description: "Usuário ou senha inválidos.",
       });
-      form.setError("email", { type: "manual", message: " " });
+      form.setError("username", { type: "manual", message: " " }); // Alterado de email
       form.setError("password", { type: "manual", message: "Credenciais inválidas" });
       setIsLoading(false); 
     }
@@ -97,20 +105,20 @@ export default function LoginPage() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
-                name="email"
+                name="username" // Alterado de email
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-foreground/90">Email de Acesso</FormLabel>
+                    <FormLabel className="text-foreground/90">Usuário de Acesso</FormLabel> {/* Alterado texto */}
                     <FormControl>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" /> {/* Alterado Ícone */}
                         <Input 
                           type="text"
-                          placeholder="Seu email gerado" 
+                          placeholder="Seu usuário gerado" 
                           className="pl-10 rounded-lg" 
                           {...field} 
                           readOnly 
-                          aria-label="Email"
+                          aria-label="Usuário" // Alterado aria-label
                         />
                       </div>
                     </FormControl>

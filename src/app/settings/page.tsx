@@ -10,20 +10,30 @@ import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { Separator } from "@/components/ui/separator";
 
-const USER_EMAIL = "desconectakids@gmail.com"; // Email fixo de login
+const FIXED_USERNAME = "metododesconecta"; // Usuário fixo de login
 
 export default function SettingsPage() {
   const router = useRouter();
   const { toast } = useToast();
 
   const handleLogout = () => {
-    document.cookie = "auth_token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // Remove o cookie de autenticação
+    const cookieOptions = [
+      "path=/",
+      "expires=Thu, 01 Jan 1970 00:00:00 GMT", // Data no passado para expirar o cookie
+      "SameSite=Lax",
+    ];
+    if (process.env.NODE_ENV === 'production') {
+      cookieOptions.push("Secure");
+    }
+    document.cookie = `auth_token=; ${cookieOptions.join('; ')}`;
+    
     toast({
       title: "Logout realizado",
       description: "Você foi desconectado com sucesso.",
     });
     router.push("/login");
-    router.refresh();
+    router.refresh(); // Força a reavaliação do middleware
   };
 
   return (
@@ -47,14 +57,14 @@ export default function SettingsPage() {
             <div className="flex items-center">
               <UserCircle size={20} className="text-primary mr-3 flex-shrink-0" />
               <div>
-                <p className="text-sm font-medium text-foreground">Email de Acesso:</p>
-                <p className="text-sm text-muted-foreground">{USER_EMAIL}</p>
+                <p className="text-sm font-medium text-foreground">Usuário de Acesso:</p> {/* Alterado texto */}
+                <p className="text-sm text-muted-foreground">{FIXED_USERNAME}</p> {/* Exibe o usuário fixo */}
               </div>
             </div>
             <div className="flex items-start">
               <ShieldCheck size={20} className="text-primary mr-3 mt-0.5 flex-shrink-0" />
               <p className="text-xs text-muted-foreground">
-                Suas credenciais (email e senha) são geradas automaticamente e vinculadas à sua compra para garantir segurança e exclusividade. Por isso, não é possível alterá-las.
+                Suas credenciais (usuário e senha) são geradas automaticamente e vinculadas à sua compra para garantir segurança e exclusividade. Por isso, não é possível alterá-las.
               </p>
             </div>
           </div>
