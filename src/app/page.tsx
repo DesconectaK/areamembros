@@ -59,7 +59,7 @@ export default function HomePage() {
             Bem-vinda(o)!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
-            Um mundo melhor, onde vivemos sem telas. Descubra atividades que estimulam o desenvolvimento sem distrações digitais e dê ao seu filho a infância perfeita!
+            Um mundo melhor, onde vivemos sem telas. Aproveite as atividades!
           </p>
         </div>
       </section>
