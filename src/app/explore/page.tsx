@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Compass, ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const upsellProducts = [
   {
@@ -17,13 +18,13 @@ const upsellProducts = [
   },
   {
     id: "upsell-2",
-    title: "CALENDARIO PERSONALIZADO",
-    description: "Rotina caótica e excesso de telas? Organize sua família com este calendário! Atividades offline e metas claras para mais foco, união e menos distrações. Ideal para aplicar o método no dia a dia!",
+    title: "CALENDÁRIO DE ATIVIDADES/METAS",
+    description: "Cansado de ver sua família afundada nas telas e sem conexão real? Este calendário vai te ajudar a organizar a semana, definir metas claras e criar momentos de qualidade – sem mais distrações, só resultados!",
     price: "R$ 4,90",
     imageUrl: "/images/upcalendari.png",
-    imageHint: "calendario personalizado",
+    imageHint: "calendario metas",
     comingSoon: false,
-    // ctaText will default to "Saiba Mais"
+    ctaText: "EU QUERO!",
   },
 ];
 
@@ -65,7 +66,11 @@ export default function ExplorePage() {
                     <p className="text-sm text-muted-foreground line-clamp-3">
                       {product.description}
                     </p>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
+                    <div className={cn(
+                        "flex flex-col sm:flex-row sm:items-center gap-3 pt-2",
+                        product.price ? "sm:justify-between" : "sm:justify-end"
+                      )}
+                    >
                       {product.price && (
                         <p className="text-xl font-bold text-primary">
                           {product.price}
