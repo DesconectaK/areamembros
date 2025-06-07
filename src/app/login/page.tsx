@@ -31,7 +31,7 @@ const FIXED_USERNAME = "metododesconecta";
 const FIXED_PASSWORD = "premium@";
 
 export default function LoginPage() {
-  const router = useRouter();
+  const router = useRouter(); // router ainda é necessário para outras funcionalidades potenciais do Next.js
   const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(true); 
@@ -64,8 +64,10 @@ export default function LoginPage() {
       }
       document.cookie = `auth_token=true; ${cookieOptions.join('; ')}`;
       
-      router.push("/");
-      router.refresh();
+      // Dê um pequeno tempo para o cookie ser processado antes de redirecionar
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 150); // Aumentei um pouco o delay para 150ms
 
     } else {
       toast({
