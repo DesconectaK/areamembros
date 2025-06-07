@@ -59,7 +59,7 @@ export default function HomePage() {
             Bem-vinda(o)!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
-            Um mundo melhor, onde vivemos sem telas. Aproveite as atividades!
+            Um mundo melhor, onde vivemos sem telas. Dê ao seu filho a infância perfeita!
           </p>
         </div>
       </section>
