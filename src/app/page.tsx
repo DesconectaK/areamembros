@@ -77,7 +77,7 @@ export default function HomePage() {
               <Link
                 href={`/activities/${activity.id}`}
                 key={activity.id}
-                className="flex-shrink-0 snap-start group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
+                className="flex-shrink-0 snap-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
                 aria-label={`Acessar atividade: ${activity.title}`}
               >
                 <Card
