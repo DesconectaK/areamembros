@@ -44,12 +44,12 @@ export default function HomePage() {
         aria-label="Banner Promocional"
       >
         <Image
-          src="/images/banner-principal.png" 
-          alt="Banner com família sorrindo e criança segurando livros, promovendo o Método Desconecta"
+          src="/images/bannerp.png"
+          alt="Banner promocional do Método Desconecta"
           fill
           sizes="(max-width: 768px) 100vw, 1200px"
           className="object-cover"
-          data-ai-hint="familia atividades desconecta"
+          data-ai-hint="banner metodo desconecta"
           priority
         />
       </div>
