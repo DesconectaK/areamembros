@@ -14,6 +14,18 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=31536000; includeSubDomains', // 1 year
+  },
+  {
+    key: 'Permissions-Policy',
+    value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), gyroscope=(), magnetometer=(), accelerometer=()",
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  }
   // Content-Security-Policy foi removido temporariamente para corrigir problemas de carregamento.
   // Se necessário, pode ser reintroduzido com uma política cuidadosamente testada.
 ];
