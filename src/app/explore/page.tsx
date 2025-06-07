@@ -8,7 +8,7 @@ const upsellProducts = [
   {
     id: "upsell-1",
     title: "GUIA PARA PAIS",
-    description: "O caos da rotina e o tempo de tela te consomem? Este calendário vai te ajudar a organizar a semana da sua família, com atividades offline e metas claras que mantém todos motivados e em movimento. Mais foco, mais união, e menos distração!",
+    description: "Rotina caótica e telas demais? Transforme sua família! Este guia traz atividades offline e metas claras para mais foco, união e menos distrações. Recupere o tempo de qualidade!",
     price: "R$ 4,90",
     imageUrl: "/images/upguia.png",
     imageHint: "guia pais",
@@ -17,7 +17,7 @@ const upsellProducts = [
   {
     id: "upsell-2",
     title: "CALENDARIO PERSONALIZADO",
-    description: "Está difícil manter o equilíbrio em casa? Este guia é o manual para implementar o Método Premium, com estratégias práticas para engajar as crianças, superar a resistência ao diminuir as telas e criar uma rotina mais saudável e conectada para sua família.",
+    description: "Dificuldade em equilibrar a casa? O Método Premium é a chave! Engaje as crianças, reduza telas sem estresse e crie uma rotina familiar conectada e saudável. Sua família merece!",
     price: "R$ 4,90",
     imageUrl: "/images/upcalendario.png",
     imageHint: "calendario personalizado",
