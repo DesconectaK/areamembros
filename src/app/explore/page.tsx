@@ -9,8 +9,8 @@ const upsellProducts = [
   {
     id: "upsell-1",
     title: "GUIA COMPLETO PARA PAIS",
-    description: "As telas estão tomando conta da rotina familiar? Este guia vai te dar o passo a passo para engajar seus filhos, criar uma rotina sem stress e reduzir as telas, trazendo mais qualidade e conexão para a sua família.",
-    price: "", // Price removed for this product
+    description: "Telas demais? Este guia prático te ajuda a engajar seus filhos, reduzir o uso de telas sem stress e criar uma rotina familiar com mais qualidade e conexão.",
+    price: "R$ 4,90",
     imageUrl: "/images/upguia.png",
     imageHint: "guia pais",
     comingSoon: false,
@@ -19,7 +19,7 @@ const upsellProducts = [
   {
     id: "upsell-2",
     title: "CALENDÁRIO DE ATIVIDADES/METAS",
-    description: "Cansado de ver sua família afundada nas telas e sem conexão real? Este calendário vai te ajudar a organizar a semana, definir metas claras e criar momentos de qualidade – sem mais distrações, só resultados!",
+    description: "Sua família está refém das telas? Este calendário organiza a semana com atividades offline e metas claras. Tenha mais foco, união e resultados!",
     price: "R$ 4,90",
     imageUrl: "/images/upcalendari.png",
     imageHint: "calendario metas",
@@ -40,7 +40,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            Guia e calendário que qualquer pai e mãe PRECISAM ter, sem sombra de dúvidas!
+            O GUIA e o CALENDÁRIO que todo pai DEVE TER!
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
@@ -63,7 +63,7 @@ export default function ExplorePage() {
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {product.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-3">
+                    <p className="text-sm text-muted-foreground line-clamp-2">
                       {product.description}
                     </p>
                     <div className={cn(
