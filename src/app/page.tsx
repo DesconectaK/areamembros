@@ -45,10 +45,12 @@ export default function HomePage() {
       >
         <Image
           src="/images/banner-principal.png" 
-          alt="Banner Promocional Principal"
+          alt="Banner com família sorrindo e criança segurando livros"
           fill
           sizes="(max-width: 768px) 100vw, 1200px"
           className="object-cover"
+          data-ai-hint="familia livros"
+          priority // Adicionar priority para o LCP (Largest Contentful Paint)
         />
       </div>
 
