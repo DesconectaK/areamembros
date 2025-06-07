@@ -44,12 +44,12 @@ export default function HomePage() {
         aria-label="Banner Promocional"
       >
         <Image
-          src="/images/bannerp.png"
-          alt="Banner promocional do Método Desconecta"
+          src="/banners/bannerp.png"
+          alt="Banner promocional principal"
           fill
           sizes="(max-width: 768px) 100vw, 1200px"
           className="object-cover"
-          data-ai-hint="banner metodo desconecta"
+          data-ai-hint="banner principal"
           priority
         />
       </div>
