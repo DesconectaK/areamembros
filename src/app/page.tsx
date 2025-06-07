@@ -59,7 +59,7 @@ export default function HomePage() {
             Bem-vindo(a) ao Método Desconecta!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
-            Explore um universo de atividades criativas e recursos exclusivos para transformar o aprendizado e a diversão em família.
+            Acesse as atividades e veja a magia acontecer!
           </p>
         </div>
       </section>
