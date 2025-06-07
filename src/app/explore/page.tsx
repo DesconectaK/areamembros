@@ -40,7 +40,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            O GUIA e o CALENDÁRIO que todo pai DEVE TER!
+            O Guia e o Calendário que toda a família DEVE ter.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
