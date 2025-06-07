@@ -6,12 +6,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { ClientLayoutEffects } from '@/components/layout/client-layout-effects';
-import { Inter } from 'next/font/google';
+import { Archivo_Black } from 'next/font/google';
 
-const inter = Inter({ 
+const archivo_black = Archivo_Black({ 
   subsets: ['latin'],
+  weight: ['400'], // Archivo Black has only one weight, '400', which is its "Black" style
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-archivo-black',
 });
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cn("dark", inter.variable)}>
+    <html lang="pt-BR" className={cn("dark", archivo_black.variable)}>
       <head>
         {/* metadata.robots will be handled by Next.js */}
       </head>
