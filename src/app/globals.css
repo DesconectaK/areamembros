@@ -48,8 +48,8 @@ body {
     --radius: 0.5rem;
 
     /* Custom variables for bottom navigation */
-    --nav-background: 0 0% 20%; /* Dark Gray for nav background */
-    --nav-foreground-inactive: 0 0% 70%; /* Lighter gray for inactive nav items */
+    --nav-background: 0 0% 0%; /* Black for nav background */
+    --nav-foreground-inactive: 0 0% 65%; /* Gray for inactive nav items */
     --nav-height: 4rem; /* 64px */
   }
 
@@ -88,8 +88,9 @@ body {
     --chart-4: 30 80% 60%; 
     --chart-5: 160 60% 50%;
 
-    --nav-background: 0 0% 20%; /* Dark Gray for nav background */
-    --nav-foreground-inactive: 0 0% 70%; /* Lighter gray for inactive nav items */
+    /* Custom variables for bottom navigation */
+    --nav-background: 0 0% 0%; /* Black for nav background */
+    --nav-foreground-inactive: 0 0% 65%; /* Gray for inactive nav items */
   }
 }
 
