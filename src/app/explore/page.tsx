@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Compass, ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link"; // Import Link
 import { cn } from "@/lib/utils";
 
 const upsellProducts = [
@@ -15,6 +16,7 @@ const upsellProducts = [
     imageHint: "guia pais",
     comingSoon: false,
     ctaText: "EU QUERO!",
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk" // Added checkout URL
   },
   {
     id: "upsell-2",
@@ -25,6 +27,7 @@ const upsellProducts = [
     imageHint: "calendario metas",
     comingSoon: false,
     ctaText: "EU QUERO!",
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17" // Added checkout URL
   },
 ];
 
@@ -76,10 +79,25 @@ export default function ExplorePage() {
                           {product.price}
                         </p>
                       )}
-                      <Button disabled={product.comingSoon} size="sm" className="w-full sm:w-auto">
-                        <ShoppingCart className="mr-2 h-4 w-4" />
-                        {product.comingSoon ? "Em Breve" : (product.ctaText || "Saiba Mais")}
-                      </Button>
+                      {product.comingSoon ? (
+                        <Button disabled={true} size="sm" className="w-full sm:w-auto">
+                          <ShoppingCart className="mr-2 h-4 w-4" />
+                          Em Breve
+                        </Button>
+                      ) : product.checkoutUrl ? (
+                        <Link href={product.checkoutUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                          <Button size="sm" className="w-full"> {/* Button takes full width of Link container */}
+                            <ShoppingCart className="mr-2 h-4 w-4" />
+                            {product.ctaText}
+                          </Button>
+                        </Link>
+                      ) : (
+                        // Fallback for non-comingSoon but no checkoutUrl
+                        <Button disabled={true} size="sm" className="w-full sm:w-auto">
+                           <ShoppingCart className="mr-2 h-4 w-4" />
+                           {product.ctaText}
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
