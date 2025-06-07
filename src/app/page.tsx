@@ -59,7 +59,7 @@ export default function HomePage() {
             Bem-vindo(a) ao Método Desconecta!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
-            Acesse as atividades e veja a magia acontecer!
+            Um mundo onde vivemos sem as telas! Acesse as atividades e veja a magia acontecer.
           </p>
         </div>
       </section>
