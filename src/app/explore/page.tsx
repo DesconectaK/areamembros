@@ -11,23 +11,23 @@ const upsellProducts = [
     id: "upsell-1",
     title: "GUIA COMPLETO PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
-    price: "R$ 6,90",
+    price: "R$ 37,90",
     imageUrl: "/images/upguia.png",
     imageHint: "guia pais",
     comingSoon: false,
     ctaText: "EU QUERO!",
-    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk" // Added checkout URL
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
   },
   {
     id: "upsell-2",
     title: "CALENDÁRIO DE ATIVIDADES/METAS",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
-    price: "R$ 6,90",
+    price: "R$ 27,90",
     imageUrl: "/images/upcalendari.png",
     imageHint: "calendario metas",
     comingSoon: false,
     ctaText: "EU QUERO!",
-    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17" // Added checkout URL
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17"
   },
 ];
 
