@@ -65,8 +65,8 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-2 animate-in fade-in slide-in-from-bottom-5 duration-700 relative">
-        <div className="absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none sm:w-8 md:w-10 lg:w-12"></div>
-        <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none sm:w-8 md:w-10 lg:w-12"></div>
+        <div className="absolute inset-y-0 left-0 w-10 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-10 sm:w-12 md:w-16 lg:w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
         
         <div className="relative">
           <div
@@ -82,7 +82,7 @@ export default function HomePage() {
               >
                 <Card
                   className="w-[140px] min-w-[140px] sm:w-[160px] sm:min-w-[160px] md:w-[180px] md:min-w-[180px]
-                             h-[230px] sm:h-[260px] md:h-[290px]
+                             h-[250px] sm:h-[280px] md:h-[310px]
                              bg-card rounded-lg shadow-lg border-border/50
                              transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:scale-105 cursor-pointer
                              flex flex-col relative overflow-hidden"
@@ -94,7 +94,7 @@ export default function HomePage() {
                         alt={`Capa da atividade: ${activity.title}`}
                         fill
                         sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, 180px"
-                        className="object-contain transition-transform duration-300"
+                        className="object-cover transition-transform duration-300"
                         data-ai-hint={activity.imageHint || "atividade infantil"}
                         unoptimized={activity.imageUrl.startsWith('https://placehold.co')}
                       />
@@ -109,7 +109,7 @@ export default function HomePage() {
                 </Card>
               </Link>
             ))}
-            <div className="flex-shrink-0 w-1 h-1 snap-end"></div>
+            <div className="flex-shrink-0 w-1 h-1 snap-end"></div> {/* Small element to ensure last item snaps correctly */}
           </div>
         </div>
       </section>

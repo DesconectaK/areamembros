@@ -63,7 +63,7 @@ export default function ExplorePage() {
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {product.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-sm text-muted-foreground">
                       {product.description}
                     </p>
                     <div className={cn(
