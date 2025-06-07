@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
         <div className="text-center md:text-left">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2 font-headline">
-            Bem-vindo(a) ao Método Desconecta!
+            Bem-vinda(o)!
           </h1>
           <p className="text-base md:text-lg text-primary-foreground">
             Um mundo melhor, onde vivemos sem telas. Descubra atividades que estimulam o desenvolvimento sem distrações digitais e dê ao seu filho a infância perfeita!
