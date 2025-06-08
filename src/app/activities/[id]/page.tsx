@@ -34,7 +34,7 @@ const activitiesData: Record<string, ActivityContent> = {
     title: "50 MODELOS PARA COLORIR",
     subheadline: "Prontos para dar vida com cores?",
     description: "Descubra modelos para colorir que estimulam a criatividade e a coordenação. Perfeitos para todas as idades, esses modelos oferecem uma maneira divertida de explorar cores e formas enquanto se aprende e se diverte.",
-    pdfUrl: "https://drive.google.com/file/d/1j6WhKrXEHSZAh--RsxJQMv0STNMVQhsd/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1FlWF3tNh4AenexKmIkvxwYdC2MF4Pp-J/view?usp=sharing",
   },
   "activity-4": {
     title: "50 ATIVIDADES MUSICAIS",
