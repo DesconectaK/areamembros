@@ -62,15 +62,15 @@ const upsellProducts: UpsellProduct[] = [
   },
   {
     id: "whatsapp-community",
-    title: "Participe da nossa Comunidade de Pais",
+    title: "PARTICIPE DO NOSSO GRUPO DE PAIS",
     description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da paternidade e maternidade.",
     type: 'whatsapp',
-    posterUrl: "https://placehold.co/600x400.png", // Placeholder para imagem do grupo
+    posterUrl: "/images/whats.png", 
     comingSoon: false,
     ctaText: "Entrar no Grupo",
     checkoutUrl: "https://chat.whatsapp.com/SEU_LINK_AQUI", // SUBSTITUA PELO SEU LINK REAL
-    aspectRatioClass: "aspect-video", // Mantém consistência visual
-    imageHint: "whatsapp logo", // Atualizado o hint da imagem
+    aspectRatioClass: "aspect-video", 
+    imageHint: "whatsapp logo",
   },
 ];
 
@@ -128,6 +128,7 @@ export default function ExplorePage() {
                               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                               className="rounded-lg object-cover border border-border/30 shadow-sm"
                               data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
+                              unoptimized={product.posterUrl.startsWith('https://placehold.co')}
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
                               <div
@@ -161,6 +162,7 @@ export default function ExplorePage() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                           className="rounded-lg object-cover border border-border/30 shadow-sm"
                           data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
+                          unoptimized={product.posterUrl.startsWith('https://placehold.co')}
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors rounded-lg">
                            <Smartphone size={64} className="text-white/90" />
@@ -214,3 +216,5 @@ export default function ExplorePage() {
   );
 }
 
+
+    
