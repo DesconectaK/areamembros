@@ -31,10 +31,10 @@ export default function RootLayout({
       <head>
         {/* metadata.robots will be handled by Next.js */}
         {/* Vturb Speed Optimization Links */}
-        <link rel="preload" href="https://scripts.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684571184440c57b29707b22/player.js" as="script" />
+        <link rel="preload" href="https://scripts.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684594984440c57b2970977a/player.js" as="script" />
         <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script" />
-        <link rel="preload" href="https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684571184440c57b29707b22/thumbnail.jpg" as="image" />
-        <link rel="preload" href="https://cdn.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/68457114cc0bad7373a1e313/main.m3u8" as="fetch" />
+        <link rel="preload" href="https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684594984440c57b2970977a/thumbnail.jpg" as="image" />
+        <link rel="preload" href="https://cdn.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/68459494e902f4ba338486d4/main.m3u8" as="fetch" />
         <link rel="dns-prefetch" href="https://cdn.converteai.net" />
         <link rel="dns-prefetch" href="https://scripts.converteai.net" />
         <link rel="dns-prefetch" href="https://images.converteai.net" />
