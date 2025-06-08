@@ -18,6 +18,10 @@ const VturbPlayer: React.FC<VturbPlayerProps> = ({ videoId, thumbnailUrl, vturbA
 
   useEffect(() => {
     if (document.getElementById(scriptId)) {
+      // Script already loaded or loading, prevent re-injection
+      // Potentially, if the videoId changes, we might want to remove the old script
+      // and player instance, but Vturb might handle this internally or this component
+      // might be unmounted and remounted by React. For now, just prevent duplicates.
       return;
     }
 
@@ -27,22 +31,30 @@ const VturbPlayer: React.FC<VturbPlayerProps> = ({ videoId, thumbnailUrl, vturbA
     script.async = true;
     document.head.appendChild(script);
 
-    // It's generally not recommended to remove scripts like this on unmount 
-    // unless you are sure of the side effects and the script provider's intent.
-    // For Vturb, it's likely best to let it manage its own lifecycle once loaded.
-    // return () => {
-    //   const existingScript = document.getElementById(scriptId);
-    //   if (existingScript && existingScript.parentElement) {
-    //     existingScript.parentElement.removeChild(existingScript);
-    //   }
-    // };
-  }, [videoId, vturbAccountId, scriptId]);
+    // Clean up script if component unmounts, though Vturb might not need this.
+    // This is generally good practice for scripts injected this way.
+    return () => {
+      const existingScript = document.getElementById(scriptId);
+      if (existingScript && existingScript.parentElement) {
+        // Check if player instance has a cleanup method, if documented by Vturb
+        // For now, just removing the script tag.
+        // existingScript.parentElement.removeChild(existingScript);
+        // Note: Removing the script tag itself might not unload the player if it's already initialized.
+        // Proper cleanup would involve Vturb's API if available.
+      }
+      // Also consider cleaning up the player div if Vturb doesn't do it.
+      // const playerDiv = document.getElementById(playerContainerId);
+      // if (playerDiv) playerDiv.innerHTML = ''; // Or more specific cleanup
+    };
+  }, [videoId, vturbAccountId, scriptId, playerContainerId]);
 
   return (
     <div
       id={playerContainerId}
-      style={{ position: 'relative', width: '100%', padding: '56.25% 0 0' }}
-      className={className} // Apply passed className for styling like rounded corners
+      // The className prop will now control the aspect ratio e.g., aspect-video, aspect-[4/3]
+      // Removed hardcoded padding for aspect ratio from here.
+      style={{ position: 'relative', width: '100%' }} 
+      className={className}
     >
       <img
         id={thumbnailId}

@@ -23,6 +23,7 @@ interface UpsellProduct {
   comingSoon: boolean;
   ctaText: string;
   checkoutUrl?: string;
+  aspectRatioClass?: string; // To control aspect ratio for Vturb or YouTube
 }
 
 const upsellProducts: UpsellProduct[] = [
@@ -32,12 +33,13 @@ const upsellProducts: UpsellProduct[] = [
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
     embedType: 'vturb',
-    vturbVideoId: '6845512fcc0bad7373a1cfda',
+    vturbVideoId: '684571184440c57b29707b22', // Updated Vturb Video ID
     vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
-    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/6845512fcc0bad7373a1cfda/thumbnail.jpg",
+    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684571184440c57b29707b22/thumbnail.jpg", // Updated Poster URL
     comingSoon: false,
     ctaText: "EU QUERO!",
-    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
+    aspectRatioClass: "aspect-[4/3]", // Vturb embed uses padding 75% which is 4:3
   },
   {
     id: "upsell-2",
@@ -49,7 +51,8 @@ const upsellProducts: UpsellProduct[] = [
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
-    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17"
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17",
+    aspectRatioClass: "aspect-video", // YouTube is typically 16:9
   },
 ];
 
@@ -79,20 +82,20 @@ export default function ExplorePage() {
             <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-                  <div className="w-full md:w-[280px] lg:w-[320px] flex-shrink-0 relative">
+                  <div className={cn("w-full md:w-[280px] lg:w-[320px] flex-shrink-0 relative", product.aspectRatioClass)}>
                     {product.embedType === 'vturb' && product.vturbVideoId && product.vturbAccountId && (
                       <VturbPlayer
                         videoId={product.vturbVideoId}
                         thumbnailUrl={product.posterUrl}
                         vturbAccountId={product.vturbAccountId}
-                        className="rounded-lg overflow-hidden border border-border/30 shadow-sm aspect-video"
+                        className={cn("rounded-lg overflow-hidden border border-border/30 shadow-sm w-full h-full", product.aspectRatioClass)}
                       />
                     )}
                     {product.embedType === 'youtube' && product.videoUrl && (
                       <>
                         {!showVideoPlayer[product.id] ? (
                           <div
-                            className="aspect-video w-full relative group cursor-pointer"
+                            className={cn("w-full h-full relative group cursor-pointer", product.aspectRatioClass)}
                             onClick={() => handlePlayClick(product.id)}
                             role="button"
                             tabIndex={0}
@@ -104,7 +107,7 @@ export default function ExplorePage() {
                               alt={`Poster para ${product.title}`}
                               fill
                               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
-                              className="rounded-lg object-cover border border-border/30 shadow-sm bg-muted"
+                              className="rounded-lg object-cover border border-border/30 shadow-sm"
                               data-ai-hint={product.title.toLowerCase().replace(/\s/g, ' ')}
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
@@ -116,7 +119,7 @@ export default function ExplorePage() {
                             </div>
                           </div>
                         ) : (
-                          <div className="aspect-video w-full">
+                          <div className={cn("w-full h-full", product.aspectRatioClass)}>
                             <iframe
                               src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0&modestbranding=1&rel=0&iv_load_policy=3`}
                               title={`Vídeo de apresentação para ${product.title}`}
@@ -124,7 +127,7 @@ export default function ExplorePage() {
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                               referrerPolicy="strict-origin-when-cross-origin"
                               allowFullScreen
-                              className="rounded-lg w-full h-full border border-border/30 shadow-sm bg-muted"
+                              className="rounded-lg w-full h-full border border-border/30 shadow-sm"
                             ></iframe>
                           </div>
                         )}
