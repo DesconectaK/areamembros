@@ -70,7 +70,7 @@ const upsellProducts: UpsellProduct[] = [
     ctaText: "Entrar no Grupo",
     checkoutUrl: "https://chat.whatsapp.com/SEU_LINK_AQUI", // SUBSTITUA PELO SEU LINK REAL
     aspectRatioClass: "aspect-video", // Mantém consistência visual
-    imageHint: "whatsapp community",
+    imageHint: "whatsapp logo", // Atualizado o hint da imagem
   },
 ];
 
