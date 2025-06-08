@@ -33,13 +33,13 @@ const upsellProducts: UpsellProduct[] = [
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
     embedType: 'vturb',
-    vturbVideoId: '684571184440c57b29707b22', // Updated Vturb Video ID
+    vturbVideoId: '684571184440c57b29707b22',
     vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
-    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684571184440c57b29707b22/thumbnail.jpg", // Updated Poster URL
+    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684571184440c57b29707b22/thumbnail.jpg",
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
-    aspectRatioClass: "aspect-[4/3]", // Vturb embed uses padding 75% which is 4:3
+    aspectRatioClass: "aspect-video", // Changed from aspect-[4/3] to aspect-video (16:9)
   },
   {
     id: "upsell-2",
