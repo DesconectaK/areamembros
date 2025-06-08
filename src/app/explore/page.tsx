@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, Play } from "lucide-react"; // Importado Play
+import { Compass, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const upsellProducts = [
@@ -15,7 +15,7 @@ const upsellProducts = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E",
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Link do YouTube
     posterUrl: "/images/upguia.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -26,7 +26,7 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", // Novo Link do YouTube
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -64,8 +64,8 @@ export default function ExplorePage() {
                     {product.videoUrl.includes("youtube.com/embed") ? (
                       <>
                         {!showVideoPlayer[product.id] ? (
-                          <div 
-                            className="aspect-video w-full relative group cursor-pointer" 
+                          <div
+                            className="aspect-video w-full relative group cursor-pointer"
                             onClick={() => handlePlayClick(product.id)}
                             role="button"
                             tabIndex={0}
@@ -78,9 +78,10 @@ export default function ExplorePage() {
                               fill
                               sizes="(max-width: 768px) 180px, 200px"
                               className="rounded-lg object-cover border border-border/30 shadow-sm bg-muted"
+                              data-ai-hint={product.title.toLowerCase().replace(/\s/g, ' ')}
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
-                              <div // Mudado de Button para div para evitar problemas de aninhamento e estilização mais fácil
+                              <div
                                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg flex items-center justify-center cursor-pointer"
                               >
                                 <Play className="w-7 h-7 md:w-8 md:h-8 fill-primary-foreground" />
@@ -90,7 +91,7 @@ export default function ExplorePage() {
                         ) : (
                           <div className="aspect-video w-full">
                             <iframe
-                              src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0`} // mute=0 pode não funcionar sempre
+                              src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0`}
                               title={`Vídeo de apresentação para ${product.title}`}
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -101,12 +102,12 @@ export default function ExplorePage() {
                           </div>
                         )}
                       </>
-                    ) : (
+                    ) : ( // Fallback for non-YouTube videos, though current data only has YouTube
                       <video
                         src={product.videoUrl}
                         poster={product.posterUrl}
                         controls
-                        className="rounded-lg object-cover w-full aspect-square border border-border/30 shadow-sm bg-muted"
+                        className="rounded-lg object-cover w-full aspect-video border border-border/30 shadow-sm bg-muted" // Changed to aspect-video
                         aria-label={`Vídeo de apresentação para ${product.title}`}
                       >
                         Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
@@ -156,3 +157,5 @@ export default function ExplorePage() {
     </div>
   );
 }
+
+    
