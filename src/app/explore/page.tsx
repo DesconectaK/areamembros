@@ -15,7 +15,7 @@ const upsellProducts = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Link do YouTube
+    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", // CORRIGIDO: VSL para o Guia
     posterUrl: "/images/upguia.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -26,7 +26,7 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", // Novo Link do YouTube
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // CORRIGIDO: VSL para o Calendário (anteriormente do Guia)
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -102,12 +102,12 @@ export default function ExplorePage() {
                           </div>
                         )}
                       </>
-                    ) : ( // Fallback for non-YouTube videos, though current data only has YouTube
+                    ) : ( 
                       <video
                         src={product.videoUrl}
                         poster={product.posterUrl}
                         controls
-                        className="rounded-lg object-cover w-full aspect-video border border-border/30 shadow-sm bg-muted" // Changed to aspect-video
+                        className="rounded-lg object-cover w-full aspect-video border border-border/30 shadow-sm bg-muted"
                         aria-label={`Vídeo de apresentação para ${product.title}`}
                       >
                         Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
@@ -157,5 +157,3 @@ export default function ExplorePage() {
     </div>
   );
 }
-
-    
