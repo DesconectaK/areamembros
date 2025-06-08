@@ -15,7 +15,7 @@ const upsellProducts = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", // CORRIGIDO: VSL para o Guia
+    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", 
     posterUrl: "/images/upguia.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -26,7 +26,7 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // CORRIGIDO: VSL para o Calendário (anteriormente do Guia)
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", 
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -60,7 +60,7 @@ export default function ExplorePage() {
             <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-                  <div className="w-full md:w-[180px] lg:w-[200px] flex-shrink-0 relative">
+                  <div className="w-full md:w-[280px] lg:w-[320px] flex-shrink-0 relative">
                     {product.videoUrl.includes("youtube.com/embed") ? (
                       <>
                         {!showVideoPlayer[product.id] ? (
@@ -76,7 +76,7 @@ export default function ExplorePage() {
                               src={product.posterUrl}
                               alt={`Poster para ${product.title}`}
                               fill
-                              sizes="(max-width: 768px) 180px, 200px"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                               className="rounded-lg object-cover border border-border/30 shadow-sm bg-muted"
                               data-ai-hint={product.title.toLowerCase().replace(/\s/g, ' ')}
                             />
@@ -91,7 +91,7 @@ export default function ExplorePage() {
                         ) : (
                           <div className="aspect-video w-full">
                             <iframe
-                              src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0`}
+                              src={`${product.videoUrl}${product.videoUrl.includes('?') ? '&' : '?'}autoplay=1&mute=0&modestbranding=1&rel=0&iv_load_policy=3`}
                               title={`Vídeo de apresentação para ${product.title}`}
                               frameBorder="0"
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -103,6 +103,7 @@ export default function ExplorePage() {
                         )}
                       </>
                     ) : ( 
+                      // Fallback para vídeos não-YouTube, se necessário no futuro
                       <video
                         src={product.videoUrl}
                         poster={product.posterUrl}
@@ -157,3 +158,5 @@ export default function ExplorePage() {
     </div>
   );
 }
+
+    
