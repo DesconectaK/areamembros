@@ -8,15 +8,33 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Compass, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
+import VturbPlayer from "@/components/video/VturbPlayer"; // Import the VturbPlayer
 
-const upsellProducts = [
+interface UpsellProduct {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  embedType: 'youtube' | 'vturb';
+  videoUrl?: string; // For YouTube
+  vturbVideoId?: string; // For Vturb
+  vturbAccountId?: string; // For Vturb
+  posterUrl: string;
+  comingSoon: boolean;
+  ctaText: string;
+  checkoutUrl?: string;
+}
+
+const upsellProducts: UpsellProduct[] = [
   {
     id: "upsell-1",
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
-    videoUrl: "https://www.youtube.com/embed/lf2T1UAUAxI", 
-    posterUrl: "/images/upguia.png",
+    embedType: 'vturb',
+    vturbVideoId: '6845512fcc0bad7373a1cfda',
+    vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
+    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/6845512fcc0bad7373a1cfda/thumbnail.jpg", // Vturb thumbnail
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -26,7 +44,8 @@ const upsellProducts = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", 
+    embedType: 'youtube',
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Correct YouTube link for calendar
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -61,7 +80,15 @@ export default function ExplorePage() {
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                   <div className="w-full md:w-[280px] lg:w-[320px] flex-shrink-0 relative">
-                    {product.videoUrl.includes("youtube.com/embed") ? (
+                    {product.embedType === 'vturb' && product.vturbVideoId && product.vturbAccountId && (
+                      <VturbPlayer
+                        videoId={product.vturbVideoId}
+                        thumbnailUrl={product.posterUrl} // VturbPlayer uses posterUrl as its thumbnail
+                        vturbAccountId={product.vturbAccountId}
+                        className="rounded-lg overflow-hidden border border-border/30 shadow-sm bg-muted aspect-video"
+                      />
+                    )}
+                    {product.embedType === 'youtube' && product.videoUrl && (
                       <>
                         {!showVideoPlayer[product.id] ? (
                           <div
@@ -102,17 +129,6 @@ export default function ExplorePage() {
                           </div>
                         )}
                       </>
-                    ) : ( 
-                      // Fallback para vídeos não-YouTube, se necessário no futuro
-                      <video
-                        src={product.videoUrl}
-                        poster={product.posterUrl}
-                        controls
-                        className="rounded-lg object-cover w-full aspect-video border border-border/30 shadow-sm bg-muted"
-                        aria-label={`Vídeo de apresentação para ${product.title}`}
-                      >
-                        Seu navegador não suporta o elemento de vídeo. Você pode tentar acessá-lo <Link href={product.videoUrl} className="underline">diretamente aqui</Link>.
-                      </video>
                     )}
                   </div>
                   <div className="flex-grow space-y-2 md:space-y-3 w-full">
@@ -158,5 +174,3 @@ export default function ExplorePage() {
     </div>
   );
 }
-
-    
