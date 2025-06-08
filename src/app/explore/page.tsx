@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, Play } from "lucide-react";
+import { Compass, Play, Smartphone } from "lucide-react"; // Importado Smartphone
 import { cn } from "@/lib/utils";
 import VturbPlayer from "@/components/video/VturbPlayer";
 
@@ -14,16 +14,18 @@ interface UpsellProduct {
   id: string;
   title: string;
   description: string;
-  price: string;
-  embedType: 'youtube' | 'vturb';
-  videoUrl?: string; // For YouTube
-  vturbVideoId?: string; // For Vturb
-  vturbAccountId?: string; // For Vturb
-  posterUrl: string;
+  price?: string; // Tornou-se opcional
+  type: 'video' | 'whatsapp'; // Novo campo para diferenciar
+  embedType?: 'youtube' | 'vturb'; // Apenas para type 'video'
+  videoUrl?: string; // Apenas para type 'video' (YouTube)
+  vturbVideoId?: string; // Apenas para type 'video' (Vturb)
+  vturbAccountId?: string; // Apenas para type 'video' (Vturb)
+  posterUrl: string; // Obrigatório: thumbnail para vídeo ou imagem para WhatsApp
   comingSoon: boolean;
   ctaText: string;
-  checkoutUrl?: string;
-  aspectRatioClass?: string; // To control aspect ratio for Vturb or YouTube
+  checkoutUrl?: string; // URL de checkout ou link do WhatsApp
+  aspectRatioClass?: string; // Usado para imagem/vídeo
+  imageHint?: string; // Para data-ai-hint
 }
 
 const upsellProducts: UpsellProduct[] = [
@@ -32,6 +34,7 @@ const upsellProducts: UpsellProduct[] = [
     title: "GUIA PARA PAIS",
     description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
     price: "R$ 37,90",
+    type: 'video',
     embedType: 'vturb',
     vturbVideoId: '684594984440c57b2970977a',
     vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
@@ -39,20 +42,35 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
-    aspectRatioClass: "aspect-video", // Switched to 16:9 as per new embed
+    aspectRatioClass: "aspect-video",
+    imageHint: "guia pais",
   },
   {
     id: "upsell-2",
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
+    type: 'video',
     embedType: 'youtube',
     videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E",
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17",
-    aspectRatioClass: "aspect-video", // YouTube is typically 16:9
+    aspectRatioClass: "aspect-video",
+    imageHint: "calendario atividades",
+  },
+  {
+    id: "whatsapp-community",
+    title: "Participe da nossa Comunidade de Pais",
+    description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da paternidade e maternidade.",
+    type: 'whatsapp',
+    posterUrl: "https://placehold.co/600x400.png", // Placeholder para imagem do grupo
+    comingSoon: false,
+    ctaText: "Entrar no Grupo",
+    checkoutUrl: "https://chat.whatsapp.com/SEU_LINK_AQUI", // SUBSTITUA PELO SEU LINK REAL
+    aspectRatioClass: "aspect-video", // Mantém consistência visual
+    imageHint: "whatsapp community",
   },
 ];
 
@@ -74,7 +92,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            O Guia e o Calendário que toda a família DEVE ter.
+            Conteúdos e comunidade para transformar sua família.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
@@ -82,8 +100,9 @@ export default function ExplorePage() {
             <Card key={product.id} className="w-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden border-border/50">
               <CardContent className="p-4 md:p-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+                  {/* Seção de Mídia (Vídeo ou Imagem para WhatsApp) */}
                   <div className={cn("w-full md:w-[280px] lg:w-[320px] flex-shrink-0 relative", product.aspectRatioClass)}>
-                    {product.embedType === 'vturb' && product.vturbVideoId && product.vturbAccountId && (
+                    {product.type === 'video' && product.embedType === 'vturb' && product.vturbVideoId && product.vturbAccountId && (
                       <VturbPlayer
                         videoId={product.vturbVideoId}
                         thumbnailUrl={product.posterUrl}
@@ -91,7 +110,7 @@ export default function ExplorePage() {
                         className={cn("rounded-lg overflow-hidden border border-border/30 shadow-sm w-full h-full", product.aspectRatioClass)}
                       />
                     )}
-                    {product.embedType === 'youtube' && product.videoUrl && (
+                    {product.type === 'video' && product.embedType === 'youtube' && product.videoUrl && (
                       <>
                         {!showVideoPlayer[product.id] ? (
                           <div
@@ -108,7 +127,7 @@ export default function ExplorePage() {
                               fill
                               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                               className="rounded-lg object-cover border border-border/30 shadow-sm"
-                              data-ai-hint={product.title.toLowerCase().replace(/\s/g, ' ')}
+                              data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
                               <div
@@ -133,7 +152,24 @@ export default function ExplorePage() {
                         )}
                       </>
                     )}
+                    {product.type === 'whatsapp' && (
+                       <div className={cn("w-full h-full relative group", product.aspectRatioClass)}>
+                        <Image
+                          src={product.posterUrl}
+                          alt={`Imagem para ${product.title}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
+                          className="rounded-lg object-cover border border-border/30 shadow-sm"
+                          data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors rounded-lg">
+                           <Smartphone size={64} className="text-white/90" />
+                        </div>
+                      </div>
+                    )}
                   </div>
+
+                  {/* Seção de Conteúdo (Título, Descrição, Preço, CTA) */}
                   <div className="flex-grow space-y-2 md:space-y-3 w-full">
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {product.title}
@@ -143,7 +179,7 @@ export default function ExplorePage() {
                     </p>
                     <div className={cn(
                         "flex flex-col sm:flex-row sm:items-center gap-3 pt-2",
-                        product.price ? "sm:justify-between" : "sm:justify-end"
+                        product.price ? "sm:justify-between" : "sm:justify-end" // Ajusta alinhamento se não houver preço
                       )}
                     >
                       {product.price && (
@@ -177,3 +213,4 @@ export default function ExplorePage() {
     </div>
   );
 }
+
