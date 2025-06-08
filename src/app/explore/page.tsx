@@ -62,12 +62,12 @@ const upsellProducts: UpsellProduct[] = [
   },
   {
     id: "whatsapp-community",
-    title: "PARTICIPE DO NOSSO GRUPO DE PAIS",
+    title: "PARTICIPE DO NOSSO GRUPO",
     description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da paternidade e maternidade.",
     type: 'whatsapp',
     posterUrl: "/images/whats.png", 
     comingSoon: false,
-    ctaText: "Entrar no Grupo",
+    ctaText: "ENTRAR NO GRUPO",
     checkoutUrl: "https://chat.whatsapp.com/JvnX060vFtJJ4qxomS7Fmh",
     aspectRatioClass: "aspect-video", 
     imageHint: "whatsapp logo",
@@ -164,7 +164,6 @@ export default function ExplorePage() {
                           data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
                           unoptimized={product.posterUrl.startsWith('https://placehold.co') || product.posterUrl.startsWith('/images/')}
                         />
-                        {/* Ícone de Smartphone removido daqui */}
                       </div>
                     )}
                   </div>
@@ -213,3 +212,5 @@ export default function ExplorePage() {
     </div>
   );
 }
+
+    
