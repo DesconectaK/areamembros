@@ -31,7 +31,7 @@ interface UpsellProduct {
 const upsellProducts: UpsellProduct[] = [
   {
     id: "upsell-1",
-    title: "GUIA PARA PAIS",
+    title: "GUIA ESSENCIAL PARA PAIS",
     description: "Você está a um passo de ter paz dentro de casa.\nEsse guia salvou a rotina de centenas de famílias.\nAcabou o grito, a culpa, o cansaço.\nComeçou a leveza, o tempo de qualidade, a conexão real.",
     price: "R$ 37,90",
     type: 'video',
