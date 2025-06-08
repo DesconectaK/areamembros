@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Compass, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
-import VturbPlayer from "@/components/video/VturbPlayer"; // Import the VturbPlayer
+import VturbPlayer from "@/components/video/VturbPlayer";
 
 interface UpsellProduct {
   id: string;
@@ -34,7 +34,7 @@ const upsellProducts: UpsellProduct[] = [
     embedType: 'vturb',
     vturbVideoId: '6845512fcc0bad7373a1cfda',
     vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
-    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/6845512fcc0bad7373a1cfda/thumbnail.jpg", // Vturb thumbnail
+    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/6845512fcc0bad7373a1cfda/thumbnail.jpg",
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk"
@@ -45,7 +45,7 @@ const upsellProducts: UpsellProduct[] = [
     description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
     price: "R$ 27,90",
     embedType: 'youtube',
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E", // Correct YouTube link for calendar
+    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E",
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
@@ -83,9 +83,9 @@ export default function ExplorePage() {
                     {product.embedType === 'vturb' && product.vturbVideoId && product.vturbAccountId && (
                       <VturbPlayer
                         videoId={product.vturbVideoId}
-                        thumbnailUrl={product.posterUrl} // VturbPlayer uses posterUrl as its thumbnail
+                        thumbnailUrl={product.posterUrl}
                         vturbAccountId={product.vturbAccountId}
-                        className="rounded-lg overflow-hidden border border-border/30 shadow-sm bg-muted aspect-video"
+                        className="rounded-lg overflow-hidden border border-border/30 shadow-sm aspect-video"
                       />
                     )}
                     {product.embedType === 'youtube' && product.videoUrl && (
