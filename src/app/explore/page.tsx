@@ -48,7 +48,7 @@ const upsellProducts: UpsellProduct[] = [
   {
     id: "upsell-2",
     title: "CALENDÁRIO DE ATIVIDADES",
-    description: "O Calendário Personalizado vai dar a você a estrutura que sua família precisa para crescer junta. Reduza o tempo de tela, organize atividades offline e veja o progresso a cada semana. Com metas claras e práticas divertidas, você vai sentir a diferença em dias – mais conexão, mais felicidade e muito menos estresse.",
+    description: "Você não precisa mais inventar.\nEsse calendário tira sua família do piloto automático.\nAtividades prontas, semana a semana.\nNada de improviso.\nTudo pensado pra gerar conexão.\nSeu filho irá trocar a tela pelo riso!",
     price: "R$ 27,90",
     type: 'video',
     embedType: 'youtube',
@@ -212,3 +212,5 @@ export default function ExplorePage() {
     </div>
   );
 }
+
+    
