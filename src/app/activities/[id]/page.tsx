@@ -113,14 +113,14 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           </p>
 
           {pdfUrl !== "#" ? (
-            <Button asChild className="mb-6">
+            <Button asChild className="mb-6 font-bold">
               <Link href={pdfUrl} target="_blank" rel="noopener noreferrer">
                 <Download size={20} className="mr-2" />
                 VISUALIZAR ATIVIDADES
               </Link>
             </Button>
           ) : (
-            <Button disabled className="mb-6">
+            <Button disabled className="mb-6 font-bold">
               <Download size={20} className="mr-2" />
               PDF Indisponível
             </Button>
