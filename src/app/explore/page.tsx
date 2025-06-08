@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, Play } from "lucide-react"; 
+import { Compass, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import VturbPlayer from "@/components/video/VturbPlayer";
 
@@ -32,7 +32,7 @@ const upsellProducts: UpsellProduct[] = [
   {
     id: "upsell-1",
     title: "GUIA PARA PAIS",
-    description: "Este guia é a chave para transformar sua rotina. Em poucos passos, você aprenderá a reduzir o tempo de tela e, mais importante, a reconectar sua família de uma maneira mais saudável e significativa. Imagine um ambiente familiar com mais momentos de qualidade, aprendizado e diversão.",
+    description: "Você está a um passo de ter paz dentro de casa.\nEsse guia salvou a rotina de centenas de famílias.\nAcabou o grito, a culpa, o cansaço.\nComeçou a leveza, o tempo de qualidade, a conexão real.",
     price: "R$ 37,90",
     type: 'video',
     embedType: 'vturb',
@@ -65,11 +65,11 @@ const upsellProducts: UpsellProduct[] = [
     title: "PARTICIPE DO NOSSO GRUPO",
     description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da paternidade e maternidade.",
     type: 'whatsapp',
-    posterUrl: "/images/whats.png", 
+    posterUrl: "/images/whats.png",
     comingSoon: false,
     ctaText: "ENTRAR NO GRUPO",
     checkoutUrl: "https://chat.whatsapp.com/JvnX060vFtJJ4qxomS7Fmh",
-    aspectRatioClass: "aspect-video", 
+    aspectRatioClass: "aspect-video",
     imageHint: "whatsapp logo",
   },
 ];
@@ -173,7 +173,7 @@ export default function ExplorePage() {
                     <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {product.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground whitespace-pre-line">
                       {product.description}
                     </p>
                     <div className={cn(
@@ -212,5 +212,3 @@ export default function ExplorePage() {
     </div>
   );
 }
-
-    
