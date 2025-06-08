@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, Play, Smartphone } from "lucide-react"; // Importado Smartphone
+import { Compass, Play } from "lucide-react"; 
 import { cn } from "@/lib/utils";
 import VturbPlayer from "@/components/video/VturbPlayer";
 
@@ -68,7 +68,7 @@ const upsellProducts: UpsellProduct[] = [
     posterUrl: "/images/whats.png", 
     comingSoon: false,
     ctaText: "Entrar no Grupo",
-    checkoutUrl: "https://chat.whatsapp.com/SEU_LINK_AQUI", // SUBSTITUA PELO SEU LINK REAL
+    checkoutUrl: "https://chat.whatsapp.com/JvnX060vFtJJ4qxomS7Fmh",
     aspectRatioClass: "aspect-video", 
     imageHint: "whatsapp logo",
   },
@@ -162,11 +162,9 @@ export default function ExplorePage() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                           className="rounded-lg object-cover border border-border/30 shadow-sm"
                           data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
-                          unoptimized={product.posterUrl.startsWith('https://placehold.co')}
+                          unoptimized={product.posterUrl.startsWith('https://placehold.co') || product.posterUrl.startsWith('/images/')}
                         />
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors rounded-lg">
-                           <Smartphone size={64} className="text-white/90" />
-                        </div>
+                        {/* Ícone de Smartphone removido daqui */}
                       </div>
                     )}
                   </div>
@@ -215,6 +213,3 @@ export default function ExplorePage() {
     </div>
   );
 }
-
-
-    
