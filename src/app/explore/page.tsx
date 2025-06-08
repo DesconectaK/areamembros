@@ -39,7 +39,7 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
-    aspectRatioClass: "aspect-video", // Changed from aspect-[4/3] to aspect-video (16:9)
+    aspectRatioClass: "aspect-[4/3]", // Changed from aspect-video to aspect-[4/3]
   },
   {
     id: "upsell-2",
