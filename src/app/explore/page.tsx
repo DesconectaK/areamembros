@@ -42,7 +42,7 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
-    aspectRatioClass: "aspect-video",
+    aspectRatioClass: "aspect-video", // 16:9 for Vturb as per new embed
     imageHint: "guia pais",
   },
   {
@@ -192,7 +192,7 @@ export default function ExplorePage() {
                         </Button>
                       ) : product.checkoutUrl ? (
                         <Link href={product.checkoutUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                          <Button size="sm" className="w-full">
+                          <Button size="sm" className="w-full font-bold">
                             {product.ctaText}
                           </Button>
                         </Link>
