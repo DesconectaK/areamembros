@@ -14,18 +14,18 @@ interface UpsellProduct {
   id: string;
   title: string;
   description: string;
-  price?: string; // Tornou-se opcional
-  type: 'video' | 'whatsapp'; // Novo campo para diferenciar
-  embedType?: 'youtube' | 'vturb'; // Apenas para type 'video'
-  videoUrl?: string; // Apenas para type 'video' (YouTube)
-  vturbVideoId?: string; // Apenas para type 'video' (Vturb)
-  vturbAccountId?: string; // Apenas para type 'video' (Vturb)
-  posterUrl: string; // Obrigatório: thumbnail para vídeo ou imagem para WhatsApp
+  price?: string; 
+  type: 'video' | 'whatsapp'; 
+  embedType?: 'youtube' | 'vturb'; 
+  videoUrl?: string; 
+  vturbVideoId?: string; 
+  vturbAccountId?: string; 
+  posterUrl: string; 
   comingSoon: boolean;
   ctaText: string;
-  checkoutUrl?: string; // URL de checkout ou link do WhatsApp
-  aspectRatioClass?: string; // Usado para imagem/vídeo
-  imageHint?: string; // Para data-ai-hint
+  checkoutUrl?: string; 
+  aspectRatioClass?: string; 
+  imageHint?: string; 
 }
 
 const upsellProducts: UpsellProduct[] = [
@@ -51,9 +51,11 @@ const upsellProducts: UpsellProduct[] = [
     description: "Você não precisa mais inventar.\nEsse calendário tira sua família do piloto automático.\nAtividades prontas, semana a semana.\nNada de improviso.\nTudo pensado pra gerar conexão.\nSeu filho irá trocar a tela pelo riso!",
     price: "R$ 27,90",
     type: 'video',
-    embedType: 'youtube',
-    videoUrl: "https://www.youtube.com/embed/dvsP8YFfA1E",
-    posterUrl: "/images/upcalendari.png",
+    embedType: 'vturb',
+    vturbVideoId: '68460bc50cb5938a2b623a22',
+    vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
+    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/68460bc50cb5938a2b623a22/thumbnail.jpg",
+    videoUrl: undefined, // Garantir que não há URL de youtube antiga
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Y0XOQc0hwbIgxwk3VeJe",
@@ -69,7 +71,7 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "ENTRAR NO GRUPO",
     checkoutUrl: "https://chat.whatsapp.com/JvnX060vFtJJ4qxomS7Fmh",
-    aspectRatioClass: "aspect-video",
+    aspectRatioClass: "aspect-video", // Mantendo aspect-video para consistência, pode ser ajustado se a imagem for diferente
     imageHint: "whatsapp logo",
   },
 ];
@@ -178,7 +180,7 @@ export default function ExplorePage() {
                     </p>
                     <div className={cn(
                         "flex flex-col sm:flex-row sm:items-center gap-3 pt-2",
-                        product.price ? "sm:justify-between" : "sm:justify-end" // Ajusta alinhamento se não houver preço
+                        product.price ? "sm:justify-between" : "sm:justify-end" 
                       )}
                     >
                       {product.price && (
