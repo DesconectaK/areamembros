@@ -42,7 +42,7 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Z7mUpUjaYXDighCObLzk",
-    aspectRatioClass: "aspect-video", // 16:9 for Vturb as per new embed
+    aspectRatioClass: "aspect-video", 
     imageHint: "guia pais",
   },
   {
@@ -56,7 +56,7 @@ const upsellProducts: UpsellProduct[] = [
     posterUrl: "/images/upcalendari.png",
     comingSoon: false,
     ctaText: "EU QUERO!",
-    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/1KTE48qlAOhObl9Mnb17",
+    checkoutUrl: "https://www.ggcheckout.com/checkout/v2/RNHFWmeILS8NO0FC5wJB",
     aspectRatioClass: "aspect-video",
     imageHint: "calendario atividades",
   },
@@ -128,7 +128,7 @@ export default function ExplorePage() {
                               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
                               className="rounded-lg object-cover border border-border/30 shadow-sm"
                               data-ai-hint={product.imageHint || product.title.toLowerCase().replace(/\s/g, ' ')}
-                              unoptimized={product.posterUrl.startsWith('https://placehold.co')}
+                              unoptimized={product.posterUrl.startsWith('https://placehold.co') || product.posterUrl.startsWith('/images/')}
                             />
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors rounded-lg">
                               <div
