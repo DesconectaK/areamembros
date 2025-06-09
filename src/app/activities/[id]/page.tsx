@@ -57,6 +57,12 @@ const defaultActivityContent: ActivityContent = {
   pdfUrl: "#",
 };
 
+export async function generateStaticParams() {
+  return Object.keys(activitiesData).map((key) => ({
+    id: key,
+  }));
+}
+
 export default function ActivityDetailPage({ params }: ActivityDetailPageProps) {
   const { id } = params;
   const activityContent = activitiesData[id] || defaultActivityContent;
