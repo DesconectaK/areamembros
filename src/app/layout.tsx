@@ -6,13 +6,19 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { ClientLayoutEffects } from '@/components/layout/client-layout-effects';
-import { Archivo_Black } from 'next/font/google';
+import { Archivo_Black, Inter } from 'next/font/google';
 
 const archivo_black = Archivo_Black({ 
   subsets: ['latin'],
   weight: ['400'], 
   display: 'swap',
   variable: '--font-archivo-black',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cn("dark", archivo_black.variable)}>
+    <html lang="pt-BR" className={cn("dark", archivo_black.variable, inter.variable)}>
       <head>
         {/* metadata.robots will be handled by Next.js */}
         {/* Vturb Speed Optimization Links - GUIA ESSENCIAL PARA PAIS */}
@@ -64,5 +70,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-    

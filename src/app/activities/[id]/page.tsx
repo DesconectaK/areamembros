@@ -75,13 +75,13 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
           <CardHeader>
             <div className="flex items-center justify-center mb-1">
               <AlertTriangle size={48} className="text-destructive mr-3" />
-              <CardTitle className="text-center text-3xl font-headline">
+              <CardTitle className="text-center text-2xl sm:text-3xl font-headline">
                 Atividade Não Encontrada
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-md text-foreground mt-4 mb-6 px-4">
+            <p className="text-base text-foreground mt-4 mb-6 px-4">
               O conteúdo para a atividade com ID "{id}" não foi encontrado ou ainda não está disponível.
             </p>
             <Button asChild>
@@ -99,16 +99,16 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
         <CardHeader>
           <div className="flex items-center justify-center mb-1">
             <FileText size={48} className="text-primary mr-3" />
-            <CardTitle className="text-center text-3xl font-headline">
+            <CardTitle className="text-center text-2xl sm:text-3xl font-headline">
               {activityTitle}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <h2 className="text-center text-xl font-headline font-bold text-primary mt-2 mb-8">
+          <h2 className="text-center text-lg sm:text-xl font-headline font-bold text-primary mt-2 mb-8">
             {activitySubheadline}
           </h2>
-          <p className="text-md text-foreground mb-6 px-4">
+          <p className="text-base text-foreground mb-6 px-4">
             {activityDescription}
           </p>
 
