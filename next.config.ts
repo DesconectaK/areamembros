@@ -31,6 +31,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: 'export', // Adicionado para permitir a exportação estática
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -38,6 +39,9 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true, // Para 'next export', a otimização de imagens padrão do Next.js não é suportada.
+                        // As imagens serão servidas como estão, ou você pode usar um loader de terceiros.
+                        // Manter isso como true garante que o `next export` funcione sem erros de imagem.
     remotePatterns: [
       {
         protocol: 'https',
