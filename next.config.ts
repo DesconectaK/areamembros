@@ -26,8 +26,6 @@ const securityHeaders = [
     key: 'X-XSS-Protection',
     value: '1; mode=block',
   }
-  // Content-Security-Policy foi removido temporariamente para corrigir problemas de carregamento.
-  // Se necessário, pode ser reintroduzido com uma política cuidadosamente testada.
 ];
 
 const nextConfig: NextConfig = {
@@ -38,8 +36,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    // Removido: unoptimized: true, 
-    // A otimização de imagens do Next.js funciona bem com o build padrão da Netlify.
+    // unoptimized: true, // Ensuring this is commented out or removed for standard Netlify builds
     remotePatterns: [
       {
         protocol: 'https',
@@ -58,12 +55,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Apply these headers to all routes in your application.
         source: '/(.*)',
         headers: securityHeaders,
       },
     ];
   },
+  // Ensure 'output: "export"' is NOT present for standard Netlify builds
 };
 
 export default nextConfig;
