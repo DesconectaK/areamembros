@@ -28,7 +28,7 @@ const activitiesData: Record<string, ActivityContent> = {
     title: "50 BRINCADEIRAS CRIATIVAS",
     subheadline: "Que tal se divertir com brincadeiras criativas?",
     description: "Explore brincadeiras que estimulam a imaginação e ajudam no aprendizado. Perfeitas para todas as idades, essas brincadeiras são uma forma divertida de desenvolver habilidades e criar momentos inesquecíveis em família.",
-    pdfUrl: "https://drive.google.com/file/d/1QOnpnLQl8rYjIzkDsxfBd1vc3I5Uht8F/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1PlfN5oX_yYvgupKSM1SHB5OkTAzSiKfn/view?usp=sharing",
   },
   "activity-3": {
     title: "50 MODELOS PARA COLORIR",
@@ -99,16 +99,16 @@ export default function ActivityDetailPage({ params }: ActivityDetailPageProps) 
         <CardHeader>
           <div className="flex items-center justify-center mb-1">
             <FileText size={48} className="text-primary mr-3" />
-            <CardTitle className="text-center text-2xl sm:text-3xl font-headline">
+            <CardTitle className="text-center text-xl sm:text-2xl md:text-3xl font-headline">
               {activityTitle}
             </CardTitle>
           </div>
         </CardHeader>
         <CardContent className="text-center">
-          <h2 className="text-center text-lg sm:text-xl font-headline font-bold text-primary mt-2 mb-8">
+          <h2 className="text-center text-base sm:text-lg md:text-xl font-headline font-bold text-primary mt-2 mb-8">
             {activitySubheadline}
           </h2>
-          <p className="text-base text-foreground mb-6 px-4">
+          <p className="text-sm sm:text-base text-foreground mb-6 px-4">
             {activityDescription}
           </p>
 
