@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    // unoptimized: true, // Ensuring this is commented out or removed for standard Netlify builds
+    // unoptimized: true, // Ensure this is removed for standard Netlify/Vercel builds
     remotePatterns: [
       {
         protocol: 'https',
@@ -60,7 +60,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Ensure 'output: "export"' is NOT present for standard Netlify builds
+  // Ensure 'output: "export"' is NOT present for standard Netlify/Vercel builds
 };
 
 export default nextConfig;
