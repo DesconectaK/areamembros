@@ -58,6 +58,16 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
+      {
+        source: '/images/:path*', // Targets all files under the public/images directory
+        headers: [
+          {
+            key: 'Cache-Control',
+            // Cache for 7 days in browser, browser must revalidate after that.
+            value: 'public, max-age=604800, must-revalidate',
+          },
+        ],
+      },
     ];
   },
   // Ensure 'output: "export"' is NOT present for standard Netlify/Vercel builds
