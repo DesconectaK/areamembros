@@ -36,16 +36,6 @@ export default function RootLayout({
     <html lang="pt-BR" className={cn("dark", archivo_black.variable, inter.variable)}>
       <head>
         {/* metadata.robots will be handled by Next.js */}
-        {/* Vturb Speed Optimization Links - GUIA ESSENCIAL PARA PAIS */}
-        <link rel="preload" href="https://scripts.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684594984440c57b2970977a/player.js" as="script" />
-        <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script" />
-        <link rel="preload" href="https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/684594984440c57b2970977a/thumbnail.jpg" as="image" />
-        <link rel="preload" href="https://cdn.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/68459494e902f4ba338486d4/main.m3u8" as="fetch" />
-
-        {/* Vturb Speed Optimization Links - CALENDÁRIO DE ATIVIDADES */}
-        <link rel="preload" href="https://scripts.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/68460bc50cb5938a2b623a22/player.js" as="script" />
-        <link rel="preload" href="https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/68460bc50cb5938a2b623a22/thumbnail.jpg" as="image" />
-        <link rel="preload" href="https://cdn.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/68460bc19e7c5a8cbd6feea1/main.m3u8" as="fetch" />
         
         {/* Generic Vturb DNS Prefetch */}
         <link rel="dns-prefetch" href="https://cdn.converteai.net" />
