@@ -22,7 +22,7 @@ const activitiesData: Record<string, ActivityContent> = {
     title: "100 ATIVIDADES CRIATIVAS",
     subheadline: "Quer transformar o aprendizado dos seus filhos?",
     description: "Descubra atividades criativas que vão além do comum, estimulando a imaginação e o desenvolvimento das crianças. Materiais pensados para criar momentos de aprendizado e diversão em família.",
-    pdfUrl: "https://drive.google.com/file/d/1VcN-buTk52dZ7my3ipeW5SfTwVnh3ONj/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1yFFvDtD3es84T8wwqz_os1DSmxsL4y0u/view?usp=sharing",
   },
   "activity-2": {
     title: "50 BRINCADEIRAS CRIATIVAS",
