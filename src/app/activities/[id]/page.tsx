@@ -46,7 +46,7 @@ const activitiesData: Record<string, ActivityContent> = {
     title: "KIT TDAH/TEA",
     subheadline: "Pronto para apoiar o desenvolvimento de seu filho?",
     description: "Explore atividades e recursos projetados para ajudar no desenvolvimento de crianças com Transtorno do Déficit de Atenção e Hiperatividade (TDAH) ou Transtorno do Espectro Autista (TEA). Essas atividades são pensadas para promover habilidades sociais, emocionais e cognitivas de forma divertida e interativa.",
-    pdfUrl: "https://drive.google.com/file/d/1EbC-8llH8zyOLFWc6jlNbvtYqejdDnKi/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1Mv6DdbNc-fk0yVkPF3QEug8zbyoRE6je/view?usp=sharing",
   },
 };
 
