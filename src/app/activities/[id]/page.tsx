@@ -40,7 +40,7 @@ const activitiesData: Record<string, ActivityContent> = {
     title: "50 ATIVIDADES MUSICAIS",
     subheadline: "Que tal explorar o mundo da música?",
     description: "Descubra atividades musicais que despertam o ritmo e a melodia. Perfeitas para todas as idades, essas atividades são uma maneira divertida de desenvolver habilidades musicais enquanto se aprende e se diverte.",
-    pdfUrl: "https://drive.google.com/file/d/1lL7Atmnpa3yRwm0c9OeDyw0DdObx-sN3/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1IHAyaL9KE0hIC9PUV3zeO1yFm5tdkU5i/view?usp=sharing",
   },
   "activity-5": {
     title: "KIT TDAH/TEA",
