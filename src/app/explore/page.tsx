@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -124,7 +123,7 @@ export default function ExplorePage() {
             </CardTitle>
           </div>
           <CardDescription className="text-center text-sm md:text-base text-muted-foreground pt-1">
-            Conteúdos e comunidade para transformar sua família.
+            O Guia e o Calendário que todas as mães DEVEM ter.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8 pt-2">
