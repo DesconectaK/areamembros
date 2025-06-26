@@ -10,16 +10,26 @@ import { Compass, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import VturbPlayer from "@/components/video/VturbPlayer";
 
+// Adiciona a declaração para o elemento customizado do Wistia
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'wistia-player': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & { 'media-id'?: string; aspect?: string };
+    }
+  }
+}
+
 interface UpsellProduct {
   id: string;
   title: string;
   description: string;
   price?: string; 
-  type: 'video' | 'whatsapp'; 
+  type: 'video' | 'whatsapp' | 'wistia'; 
   embedType?: 'youtube' | 'vturb'; 
   videoUrl?: string; 
   vturbVideoId?: string; 
   vturbAccountId?: string; 
+  wistiaId?: string;
   posterUrl: string; 
   comingSoon: boolean;
   ctaText: string;
@@ -50,12 +60,10 @@ const upsellProducts: UpsellProduct[] = [
     title: "CALENDÁRIO DE ATIVIDADES",
     description: "Você não precisa mais inventar.\nEsse calendário tira sua família do piloto automático.\nAtividades prontas, semana a semana.\nNada de improviso.\nTudo pensado pra gerar conexão.\nSeu filho irá trocar a tela pelo riso!",
     price: "R$ 27,90",
-    type: 'video',
-    embedType: 'vturb',
-    vturbVideoId: '68460bc50cb5938a2b623a22',
-    vturbAccountId: '203430db-ad79-48e2-a8e6-4634be611b23',
-    posterUrl: "https://images.converteai.net/203430db-ad79-48e2-a8e6-4634be611b23/players/68460bc50cb5938a2b623a22/thumbnail.jpg",
-    videoUrl: undefined, // Garantir que não há URL de youtube antiga
+    type: 'wistia',
+    wistiaId: 'idwiwm1vxv',
+    posterUrl: "https://fast.wistia.com/embed/medias/idwiwm1vxv/swatch",
+    videoUrl: undefined,
     comingSoon: false,
     ctaText: "EU QUERO!",
     checkoutUrl: "https://www.ggcheckout.com/checkout/v2/Y0XOQc0hwbIgxwk3VeJe",
@@ -71,7 +79,7 @@ const upsellProducts: UpsellProduct[] = [
     comingSoon: false,
     ctaText: "ENTRAR NO GRUPO",
     checkoutUrl: "https://chat.whatsapp.com/JvnX060vFtJJ4qxomS7Fmh",
-    aspectRatioClass: "aspect-video", // Mantendo aspect-video para consistência, pode ser ajustado se a imagem for diferente
+    aspectRatioClass: "aspect-video",
     imageHint: "whatsapp logo",
   },
 ];
@@ -82,6 +90,30 @@ export default function ExplorePage() {
   const handlePlayClick = (productId: string) => {
     setShowVideoPlayer(prev => ({ ...prev, [productId]: true }));
   };
+
+  React.useEffect(() => {
+    const wistiaProducts = upsellProducts.filter(p => p.type === 'wistia' && p.wistiaId);
+    if (wistiaProducts.length === 0) return;
+
+    const playerScript = 'https://fast.wistia.com/player.js';
+    if (!document.querySelector(`script[src="${playerScript}"]`)) {
+      const script = document.createElement('script');
+      script.src = playerScript;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    wistiaProducts.forEach(product => {
+      const embedScriptUrl = `https://fast.wistia.com/embed/${product.wistiaId}.js`;
+      if (product.wistiaId && !document.querySelector(`script[src="${embedScriptUrl}"]`)) {
+        const script = document.createElement('script');
+        script.src = embedScriptUrl;
+        script.async = true;
+        script.type = 'module';
+        document.head.appendChild(script);
+      }
+    });
+  }, []);
 
   return (
     <div className="container mx-auto py-6 px-4 md:px-6 lg:px-8 space-y-8 min-h-full">
@@ -155,6 +187,26 @@ export default function ExplorePage() {
                         )}
                       </>
                     )}
+                    {product.type === 'wistia' && product.wistiaId && (
+                      <>
+                        <style>
+                          {`
+                            wistia-player[media-id='${product.wistiaId}']:not(:defined) { 
+                                background: center / contain no-repeat url('${product.posterUrl}'); 
+                                display: block; 
+                                filter: blur(5px); 
+                                height: 100%;
+                                width: 100%;
+                            }
+                          `}
+                        </style>
+                        <wistia-player 
+                          media-id={product.wistiaId} 
+                          aspect="1.7777777777777777"
+                          style={{ height: '100%', width: '100%', borderRadius: '0.5rem', overflow: 'hidden' }}
+                        ></wistia-player>
+                      </>
+                    )}
                     {product.type === 'whatsapp' && (
                        <div className={cn("w-full h-full relative group", product.aspectRatioClass)}>
                         <Image
@@ -214,5 +266,3 @@ export default function ExplorePage() {
     </div>
   );
 }
-
-    
