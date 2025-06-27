@@ -22,9 +22,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Navegação Persistente App',
-  description: 'App com navegação persistente no rodapé',
-  robots: 'noindex, nofollow',
+  title: 'Método Desconecta | Atividades Infantis Criativas',
+  description: 'Um mundo melhor, onde vivemos sem telas. Dê ao seu filho a infância dos sonhos com nossas atividades criativas!',
+  robots: 'index, follow',
 };
 
 export default function RootLayout({
