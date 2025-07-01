@@ -24,7 +24,7 @@ const upsellProducts: UpsellProduct[] = [
   {
     id: "whatsapp-community",
     title: "PARTICIPE DO NOSSO GRUPO",
-    description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da paternidade e maternidade.",
+    description: "Troque experiências, tire dúvidas e receba apoio em nosso grupo exclusivo no WhatsApp. Um espaço para crescermos juntos na jornada da maternidade.",
     type: 'whatsapp',
     posterUrl: "/images/whats.png",
     ctaText: "ENTRAR NO GRUPO",
